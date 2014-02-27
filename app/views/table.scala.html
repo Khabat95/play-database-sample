@@ -1,0 +1,18 @@
+@(table: PokerTable)
+
+
+@main("Poker Game - Table " + table.getName()) {
+	<h1>@table.getName()</h1>
+
+	<ul>
+		<li>
+			@table.getTableType().toString()
+		</li>
+		<li>
+			@table.getTableLimit().toString()
+		</li>
+		<li>
+			@table.getSeatNumber() seats
+		</li>
+	</ul>	
+}
