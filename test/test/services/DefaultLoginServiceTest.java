@@ -1,8 +1,7 @@
-package test;
+package test.services;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
-
 import models.DBUser;
 
 import org.junit.Test;
@@ -12,6 +11,7 @@ import org.mockito.Mock;
 import play.data.Form;
 import services.DefaultLoginService;
 import services.ILoginService;
+import test.AbstractTest;
 import db.DatabaseManager;
 import dto.Login;
 

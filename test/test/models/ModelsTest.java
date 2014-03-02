@@ -1,3 +1,5 @@
+package test.models;
+
 import java.util.List;
 
 import static org.junit.Assert.*;

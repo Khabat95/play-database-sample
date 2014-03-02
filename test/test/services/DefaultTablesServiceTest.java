@@ -1,4 +1,4 @@
-package test;
+package test.services;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
@@ -13,6 +13,7 @@ import org.mockito.Mock;
 
 import services.DefaultTablesService;
 import services.ITablesService;
+import test.AbstractTest;
 import db.DatabaseManager;
 
 public class DefaultTablesServiceTest extends AbstractTest {
