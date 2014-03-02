@@ -15,7 +15,7 @@ public class DefaultTablesService implements ITablesService {
 
 	@Override
 	public List<PokerTable> getTableList() {
-		return PokerTable.fromDBPokerTableListWithoutUsers(dbManager.getAllPokerTables());
+		return PokerTable.fromDbPokerTableListWithoutUsers(dbManager.getAllPokerTables());
 	}
 
 	@Override
@@ -32,7 +32,7 @@ public class DefaultTablesService implements ITablesService {
 	public boolean newTable() {
 		filledForm = form.bindFromRequest();
 		if (!filledForm.hasErrors()
-				&& dbManager.createPokerTable(filledForm.get().toDBPokerTable()) == null) {
+				&& dbManager.createPokerTable(filledForm.get().toDbPokerTable()) == null) {
 			filledForm.reject("This table name already exists");
 		}
 		return !filledForm.hasErrors();

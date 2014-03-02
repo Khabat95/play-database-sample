@@ -33,33 +33,33 @@ public class User {
 		return null;
 	}
 
-	public DbUser toDBUser() {
+	public DbUser toDbUser() {
 		return new DbUser(email, "");
 	}
 	
-	public static User fromDBUser(DbUser dbUser) {
+	public static User fromDbUser(DbUser dbUser) {
 		return new User(dbUser.getEmail());
 	}
 	
 	private static Function<DbUser, User> dbToDtoTransformFunction = new Function<DbUser, User>() {
 		@Override
 		public User apply(DbUser dbUser) {
-			return fromDBUser(dbUser);
+			return fromDbUser(dbUser);
 		}
 	};
 	
 	private static Function<User, DbUser> dtoToDbTransformFunction = new Function<User, DbUser>() {
 		@Override
 		public DbUser apply(User user) {
-			return user.toDBUser();
+			return user.toDbUser();
 		}
 	};
 	
-	public static List<User> fromDBUserList(List<DbUser> list) {
+	public static List<User> fromDbUserList(List<DbUser> list) {
 		return FluentIterable.from(list).transform(dbToDtoTransformFunction).toList();
 	}
 
-	public static List<DbUser> toDBUserList(List<User> list) {
+	public static List<DbUser> toDbUserList(List<User> list) {
 		return FluentIterable.from(list).transform(dtoToDbTransformFunction).toList();
 	}
 

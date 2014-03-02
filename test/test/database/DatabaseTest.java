@@ -111,6 +111,8 @@ public class DatabaseTest extends AbstractTest {
 		assertNull(dbManager.authenticate(new DbUser("sdubois87@msn.com",
 				"sdubois87")));
 		
+		assertEquals(1, dbManager.getAllUsers().size());
+
 		user = dbManager.getUser("sdubois87@gmail.com");
 		assertNotNull(user);
 		assertEquals("sdubois87", user.getPassword());

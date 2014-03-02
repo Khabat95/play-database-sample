@@ -78,48 +78,51 @@ public class PokerTable {
 		return null;
 	}
 
-	public DbPokerTable toDBPokerTable() {
-		return new DbPokerTable(name, tableType, tableLimit, seatNumber, User.toDBUserList(users));
+	public DbPokerTable toDbPokerTable() {
+		if(users == null)
+			return new DbPokerTable(name, tableType, tableLimit, seatNumber, null);
+		else
+			return new DbPokerTable(name, tableType, tableLimit, seatNumber, User.toDbUserList(users));
 	}
 	
-	public static PokerTable fromDBPokerTableWithUsers(DbPokerTable dbPokerTable) {
-		return new PokerTable(dbPokerTable.getName(), dbPokerTable.getTableType(), dbPokerTable.getTableLimit(), dbPokerTable.getSeatNumber(), User.fromDBUserList(dbPokerTable.getUsers()));
+	public static PokerTable fromDbPokerTableWithUsers(DbPokerTable dbPokerTable) {
+		return new PokerTable(dbPokerTable.getName(), dbPokerTable.getTableType(), dbPokerTable.getTableLimit(), dbPokerTable.getSeatNumber(), User.fromDbUserList(dbPokerTable.getUsers()));
 	}
 	
-	public static PokerTable fromDBPokerTableWithoutUsers(DbPokerTable dbPokerTable) {
+	public static PokerTable fromDbPokerTableWithoutUsers(DbPokerTable dbPokerTable) {
 		return new PokerTable(dbPokerTable.getName(), dbPokerTable.getTableType(), dbPokerTable.getTableLimit(), dbPokerTable.getSeatNumber(), null);
 	}
 	
 	private static Function<DbPokerTable, PokerTable> dbToDtoEagerTransformFunction = new Function<DbPokerTable, PokerTable>() {
 		@Override
 		public PokerTable apply(DbPokerTable dbPokerTable) {
-			return fromDBPokerTableWithUsers(dbPokerTable);
+			return fromDbPokerTableWithUsers(dbPokerTable);
 		}
 	};
 	
 	private static Function<DbPokerTable, PokerTable> dbToDtoLazyTransformFunction = new Function<DbPokerTable, PokerTable>() {
 		@Override
 		public PokerTable apply(DbPokerTable dbPokerTable) {
-			return fromDBPokerTableWithoutUsers(dbPokerTable);
+			return fromDbPokerTableWithoutUsers(dbPokerTable);
 		}
 	};
 	
 	private static Function<PokerTable, DbPokerTable> dtoToDbTransformFunction = new Function<PokerTable, DbPokerTable>() {
 		@Override
 		public DbPokerTable apply(PokerTable pokerTable) {
-			return pokerTable.toDBPokerTable();
+			return pokerTable.toDbPokerTable();
 		}
 	};
 	
-	public static List<PokerTable> fromDBPokerTableListWithUsers(List<DbPokerTable> list) {
+	public static List<PokerTable> fromDbPokerTableListWithUsers(List<DbPokerTable> list) {
 		return FluentIterable.from(list).transform(dbToDtoEagerTransformFunction).toList();
 	}
 
-	public static List<PokerTable> fromDBPokerTableListWithoutUsers(List<DbPokerTable> list) {
+	public static List<PokerTable> fromDbPokerTableListWithoutUsers(List<DbPokerTable> list) {
 		return FluentIterable.from(list).transform(dbToDtoLazyTransformFunction).toList();
 	}
 
-	public static List<DbPokerTable> toDBPokerTableList(List<PokerTable> list) {
+	public static List<DbPokerTable> toDbPokerTableList(List<PokerTable> list) {
 		return FluentIterable.from(list).transform(dtoToDbTransformFunction).toList();
 	}
 

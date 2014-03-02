@@ -90,7 +90,7 @@ public class DbUser extends Model {
 
 	@Override
 	public String toString() {
-		return "DBUser [email=" + email + ", password=" + password + "]";
+		return "DbUser [email=" + email + ", password=" + password + "]";
 	}
 	
 }

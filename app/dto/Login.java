@@ -38,11 +38,11 @@ public class Login {
 		return null;
 	}
 
-	public DbUser toDBUser() {
+	public DbUser toDbUser() {
 		return new DbUser(email, password);
 	}
 	
-	public static Login fromDBUser(DbUser dbUser) {
+	public static Login fromDbUser(DbUser dbUser) {
 		return new Login(dbUser.getEmail(), dbUser.getPassword());
 	}
 

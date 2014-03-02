@@ -34,6 +34,10 @@ public class DatabaseManager {
 	public int getUserCount() {
 		return userFinder.findRowCount();
 	}
+	
+	public List<DbUser> getAllUsers() {
+		return userFinder.all();
+	}
 
 	public DbPokerTable createPokerTable(DbPokerTable pokerTable) {
 		if (getPokerTable(pokerTable.getName()) == null) {

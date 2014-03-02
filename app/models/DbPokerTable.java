@@ -129,7 +129,7 @@ public class DbPokerTable extends Model {
 
 	@Override
 	public String toString() {
-		return "DBPokerTable [name=" + name + ", tableType=" + tableType
+		return "DbPokerTable [name=" + name + ", tableType=" + tableType
 				+ ", tableLimit=" + tableLimit + ", seatNumber=" + seatNumber
 				+ "]";
 	}

@@ -63,11 +63,11 @@ public class Account {
 		return null;
 	}
 
-	public DbUser toDBUser() {
+	public DbUser toDbUser() {
 		return new DbUser(email, password);
 	}
 	
-	public static Account fromDBUser(DbUser dbUser) {
+	public static Account fromDbUser(DbUser dbUser) {
 		return new Account(dbUser.getEmail(), dbUser.getEmail(), dbUser.getPassword(), dbUser.getPassword());
 	}
 
