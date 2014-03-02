@@ -1,6 +1,6 @@
 // @SOURCE:/home/khabat95/workspace/database-sample/conf/routes
-// @HASH:004ce473bf0ba3c83ac2cbd537c135fd33e84e71
-// @DATE:Thu Feb 27 22:47:49 EST 2014
+// @HASH:3da3037f30ae475a692fb73a1e1322299e49b76c
+// @DATE:Sun Mar 02 14:04:28 EST 2014
 
 
 import play.core._
@@ -67,7 +67,7 @@ private[this] lazy val controllers_Tables_openTable8 = Route("GET", PathPattern(
 // @LINE:17
 private[this] lazy val controllers_Assets_at9 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("assets/"),DynamicPart("file", """.+""",false))))
         
-def documentation = List(("""GET""", prefix,"""controllers.Application.index()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """login""","""controllers.Application.login()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """login""","""controllers.Application.authenticate()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """createAccount""","""controllers.Application.createAccount()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """createAccount""","""controllers.Application.submitAccount()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """tables""","""controllers.Tables.index()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """tables""","""controllers.Tables.newTable()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """tables/$name<[^/]+>/delete""","""controllers.Tables.deleteTable(name:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """table""","""controllers.Tables.openTable(name:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """assets/$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
+def documentation = List(("""GET""", prefix,"""controllers.Application.index()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """login""","""@controllers.Application@.login()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """login""","""@controllers.Application@.authenticate()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """createAccount""","""@controllers.Application@.createAccount()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """createAccount""","""@controllers.Application@.submitAccount()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """tables""","""@controllers.Tables@.index()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """tables""","""@controllers.Tables@.newTable()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """tables/$name<[^/]+>/delete""","""@controllers.Tables@.deleteTable(name:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """table""","""@controllers.Tables@.openTable(name:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """assets/$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
   case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
   case l => s ++ l.asInstanceOf[List[(String,String,String)]] 
 }}
@@ -86,7 +86,7 @@ case controllers_Application_index0(params) => {
 // @LINE:7
 case controllers_Application_login1(params) => {
    call { 
-        invokeHandler(controllers.Application.login(), HandlerDef(this, "controllers.Application", "login", Nil,"GET", """""", Routes.prefix + """login"""))
+        invokeHandler(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.Application]).login(), HandlerDef(this, "controllers.Application", "login", Nil,"GET", """""", Routes.prefix + """login"""))
    }
 }
         
@@ -94,7 +94,7 @@ case controllers_Application_login1(params) => {
 // @LINE:8
 case controllers_Application_authenticate2(params) => {
    call { 
-        invokeHandler(controllers.Application.authenticate(), HandlerDef(this, "controllers.Application", "authenticate", Nil,"POST", """""", Routes.prefix + """login"""))
+        invokeHandler(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.Application]).authenticate(), HandlerDef(this, "controllers.Application", "authenticate", Nil,"POST", """""", Routes.prefix + """login"""))
    }
 }
         
@@ -102,7 +102,7 @@ case controllers_Application_authenticate2(params) => {
 // @LINE:9
 case controllers_Application_createAccount3(params) => {
    call { 
-        invokeHandler(controllers.Application.createAccount(), HandlerDef(this, "controllers.Application", "createAccount", Nil,"GET", """""", Routes.prefix + """createAccount"""))
+        invokeHandler(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.Application]).createAccount(), HandlerDef(this, "controllers.Application", "createAccount", Nil,"GET", """""", Routes.prefix + """createAccount"""))
    }
 }
         
@@ -110,7 +110,7 @@ case controllers_Application_createAccount3(params) => {
 // @LINE:10
 case controllers_Application_submitAccount4(params) => {
    call { 
-        invokeHandler(controllers.Application.submitAccount(), HandlerDef(this, "controllers.Application", "submitAccount", Nil,"POST", """""", Routes.prefix + """createAccount"""))
+        invokeHandler(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.Application]).submitAccount(), HandlerDef(this, "controllers.Application", "submitAccount", Nil,"POST", """""", Routes.prefix + """createAccount"""))
    }
 }
         
@@ -118,7 +118,7 @@ case controllers_Application_submitAccount4(params) => {
 // @LINE:11
 case controllers_Tables_index5(params) => {
    call { 
-        invokeHandler(controllers.Tables.index(), HandlerDef(this, "controllers.Tables", "index", Nil,"GET", """""", Routes.prefix + """tables"""))
+        invokeHandler(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.Tables]).index(), HandlerDef(this, "controllers.Tables", "index", Nil,"GET", """""", Routes.prefix + """tables"""))
    }
 }
         
@@ -126,7 +126,7 @@ case controllers_Tables_index5(params) => {
 // @LINE:12
 case controllers_Tables_newTable6(params) => {
    call { 
-        invokeHandler(controllers.Tables.newTable(), HandlerDef(this, "controllers.Tables", "newTable", Nil,"POST", """""", Routes.prefix + """tables"""))
+        invokeHandler(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.Tables]).newTable(), HandlerDef(this, "controllers.Tables", "newTable", Nil,"POST", """""", Routes.prefix + """tables"""))
    }
 }
         
@@ -134,7 +134,7 @@ case controllers_Tables_newTable6(params) => {
 // @LINE:13
 case controllers_Tables_deleteTable7(params) => {
    call(params.fromPath[String]("name", None)) { (name) =>
-        invokeHandler(controllers.Tables.deleteTable(name), HandlerDef(this, "controllers.Tables", "deleteTable", Seq(classOf[String]),"POST", """""", Routes.prefix + """tables/$name<[^/]+>/delete"""))
+        invokeHandler(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.Tables]).deleteTable(name), HandlerDef(this, "controllers.Tables", "deleteTable", Seq(classOf[String]),"POST", """""", Routes.prefix + """tables/$name<[^/]+>/delete"""))
    }
 }
         
@@ -142,7 +142,7 @@ case controllers_Tables_deleteTable7(params) => {
 // @LINE:14
 case controllers_Tables_openTable8(params) => {
    call(params.fromQuery[String]("name", None)) { (name) =>
-        invokeHandler(controllers.Tables.openTable(name), HandlerDef(this, "controllers.Tables", "openTable", Seq(classOf[String]),"GET", """""", Routes.prefix + """table"""))
+        invokeHandler(play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.Tables]).openTable(name), HandlerDef(this, "controllers.Tables", "openTable", Seq(classOf[String]),"GET", """""", Routes.prefix + """table"""))
    }
 }
         

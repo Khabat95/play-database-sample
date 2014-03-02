@@ -1,56 +1,44 @@
 package controllers;
 
-import models.*;
-import models.PokerTable.*;
-import play.data.*;
-import play.mvc.*;
+import com.google.inject.Inject;
+
+import play.mvc.Controller;
+import play.mvc.Result;
+import play.mvc.Security;
+import services.ITableService;
+import services.ITablesService;
+import views.html.tables;
+import views.html.table;
 
 @Security.Authenticated(Secured.class)
 public class Tables extends Controller {
 
-	private static Form<Table> tableForm = Form.form(Table.class);
+	@Inject
+	private ITablesService tablesService;
 
-	public static Result index() {
-		return ok(views.html.tables.render(PokerTable.all(), tableForm));
+	@Inject
+	private ITableService tableService;
+	
+	public Result index() {
+		return ok(tables.render(tablesService.getTableList(), tablesService.getForm()));
 	}
 
-	public static Result openTable(String name) {
-		return ok(views.html.table.render(PokerTable.get(name)));
+	public Result openTable(String name) {
+		return ok(table.render(tableService.getTable(name)));
 	}
 
-	public static Result newTable() {
-		Form<Table> filledForm = tableForm.bindFromRequest();
-		if (filledForm.hasErrors()) {
-			return badRequest(views.html.tables.render(PokerTable.all(),
-					filledForm));
-		} else {
+	public Result newTable() {
+		if (tablesService.newTable()) {
 			return redirect(routes.Tables.index());
+		} else {
+			return badRequest(tables.render(tablesService.getTableList(),
+					tablesService.getFilledForm()));
 		}
 	}
 
-	public static Result deleteTable(String name) {
-		PokerTable.remove(name);
+	public Result deleteTable(String name) {
+		tablesService.deleteTable(name);
 		return redirect(routes.Tables.index());
-	}
-
-	public static class Table {
-
-		public String name;
-		public TableType tableType;
-		public TableLimit tableLimit;
-		public Integer seatNumber;
-
-		public String validate() {
-			if (name.isEmpty() || tableType == null || tableLimit == null
-					|| seatNumber == null) {
-				return "All fields are required";
-			} else if (PokerTable.create(name, tableType, tableLimit,
-					seatNumber) == null) {
-				return "This table name already exists";
-			}
-			return null;
-		}
-
 	}
 
 }

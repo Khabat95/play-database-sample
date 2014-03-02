@@ -1,6 +1,6 @@
 // @SOURCE:/home/khabat95/workspace/database-sample/conf/routes
-// @HASH:004ce473bf0ba3c83ac2cbd537c135fd33e84e71
-// @DATE:Thu Feb 27 22:47:49 EST 2014
+// @HASH:3da3037f30ae475a692fb73a1e1322299e49b76c
+// @DATE:Sun Mar 02 14:04:28 EST 2014
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._
@@ -291,25 +291,25 @@ class ReverseTables {
 
 // @LINE:13
 def deleteTable(name:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Tables.deleteTable(name), HandlerDef(this, "controllers.Tables", "deleteTable", Seq(classOf[String]), "POST", """""", _prefix + """tables/$name<[^/]+>/delete""")
+   play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.Tables]).deleteTable(name), HandlerDef(this, "controllers.Tables", "deleteTable", Seq(classOf[String]), "POST", """""", _prefix + """tables/$name<[^/]+>/delete""")
 )
                       
 
 // @LINE:12
 def newTable(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Tables.newTable(), HandlerDef(this, "controllers.Tables", "newTable", Seq(), "POST", """""", _prefix + """tables""")
+   play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.Tables]).newTable(), HandlerDef(this, "controllers.Tables", "newTable", Seq(), "POST", """""", _prefix + """tables""")
 )
                       
 
 // @LINE:14
 def openTable(name:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Tables.openTable(name), HandlerDef(this, "controllers.Tables", "openTable", Seq(classOf[String]), "GET", """""", _prefix + """table""")
+   play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.Tables]).openTable(name), HandlerDef(this, "controllers.Tables", "openTable", Seq(classOf[String]), "GET", """""", _prefix + """table""")
 )
                       
 
 // @LINE:11
 def index(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Tables.index(), HandlerDef(this, "controllers.Tables", "index", Seq(), "GET", """""", _prefix + """tables""")
+   play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.Tables]).index(), HandlerDef(this, "controllers.Tables", "index", Seq(), "GET", """""", _prefix + """tables""")
 )
                       
     
@@ -339,19 +339,19 @@ class ReverseApplication {
 
 // @LINE:9
 def createAccount(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Application.createAccount(), HandlerDef(this, "controllers.Application", "createAccount", Seq(), "GET", """""", _prefix + """createAccount""")
+   play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.Application]).createAccount(), HandlerDef(this, "controllers.Application", "createAccount", Seq(), "GET", """""", _prefix + """createAccount""")
 )
                       
 
 // @LINE:10
 def submitAccount(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Application.submitAccount(), HandlerDef(this, "controllers.Application", "submitAccount", Seq(), "POST", """""", _prefix + """createAccount""")
+   play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.Application]).submitAccount(), HandlerDef(this, "controllers.Application", "submitAccount", Seq(), "POST", """""", _prefix + """createAccount""")
 )
                       
 
 // @LINE:8
 def authenticate(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Application.authenticate(), HandlerDef(this, "controllers.Application", "authenticate", Seq(), "POST", """""", _prefix + """login""")
+   play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.Application]).authenticate(), HandlerDef(this, "controllers.Application", "authenticate", Seq(), "POST", """""", _prefix + """login""")
 )
                       
 
@@ -363,7 +363,7 @@ def index(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 
 // @LINE:7
 def login(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Application.login(), HandlerDef(this, "controllers.Application", "login", Seq(), "GET", """""", _prefix + """login""")
+   play.api.Play.maybeApplication.map(_.global).getOrElse(play.api.DefaultGlobal).getControllerInstance(classOf[controllers.Application]).login(), HandlerDef(this, "controllers.Application", "login", Seq(), "GET", """""", _prefix + """login""")
 )
                       
     

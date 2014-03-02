@@ -1,0 +1,40 @@
+[0m[[0mdebug[0m] [0m[34mTest run started[0m[0m
+[0m[[0mdebug[0m] [0mTest [33mApplicationTest[0m.[36msimpleCheck[0m started[0m
+[0m[[0mdebug[0m] [0mTest [33mApplicationTest[0m.[36msimpleCheck[0m finished[0m
+[0m[[0mdebug[0m] [0mTest [33mApplicationTest[0m.[36mrenderTemplate[0m started[0m
+[0m[[0mdebug[0m] [0mTest [33mApplicationTest[0m.[36mrenderTemplate[0m finished[0m
+[0m[[0mdebug[0m] [0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 2 total, 0.518s[0m[0m
+[0m[[0mdebug[0m] [0m[34mTest run started[0m[0m
+[0m[[0mdebug[0m] [0mTest [33mIntegrationTest[0m.[36mtest[0m started[0m
+[0m[[0mdebug[0m] [0mTest [33mIntegrationTest[0m.[36mtest[0m finished[0m
+[0m[[0mdebug[0m] [0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 1 total, 4.144s[0m[0m
+[0m[[0mdebug[0m] [0m[34mTest run started[0m[0m
+[0m[[0mdebug[0m] [0mTest test.[33mDefaultTablesServiceTest[0m.[36mgetTableList[0m started[0m
+[0m[[0mdebug[0m] [0mTest test.[33mDefaultTablesServiceTest[0m.[36mgetTableList[0m finished[0m
+[0m[[0mdebug[0m] [0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 1 total, 0.27s[0m[0m
+[0m[[0mdebug[0m] [0m[34mTest run started[0m[0m
+[0m[[0mdebug[0m] [0mTest test.[33mDefaultLoginServiceTest[0m.[36mauthenticate[0m started[0m
+[0m[[0mdebug[0m] [0mTest test.[33mDefaultLoginServiceTest[0m.[36mauthenticate[0m finished[0m
+[0m[[0mdebug[0m] [0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 1 total, 0.145s[0m[0m
+[0m[[0mdebug[0m] [0m[34mTest run started[0m[0m
+[0m[[0mdebug[0m] [0mTest [33mModelsTest[0m.[36mcreateAndRetrieveDBUser[0m started[0m
+[0m[[0mdebug[0m] [0mTest [33mModelsTest[0m.[36mcreateAndRetrieveDBUser[0m finished[0m
+[0m[[0mdebug[0m] [0mTest [33mModelsTest[0m.[36mdeleteTable[0m started[0m
+[0m[[0mdebug[0m] [0mTest [33mModelsTest[0m.[36mdeleteTable[0m finished[0m
+[0m[[0mdebug[0m] [0mTest [33mModelsTest[0m.[36mglobalTest[0m started[0m
+[0m[[0mdebug[0m] [0mTest [33mModelsTest[0m.[36mglobalTest[0m finished[0m
+[0m[[0mdebug[0m] [0mTest [33mModelsTest[0m.[36mcreateAndRetrieveDBPokerTable[0m started[0m
+[0m[[0mdebug[0m] [0mTest [33mModelsTest[0m.[36mcreateAndRetrieveDBPokerTable[0m finished[0m
+[0m[[0mdebug[0m] [0mTest [33mModelsTest[0m.[36mtryAuthenticate[0m started[0m
+[0m[[0mdebug[0m] [0mTest [33mModelsTest[0m.[36mtryAuthenticate[0m finished[0m
+[0m[[0mdebug[0m] [0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 5 total, 0.583s[0m[0m
+[0m[[0mdebug[0m] [0mFramework implementation 'org.specs2.runner.Specs2Framework' not present.[0m
+[0m[[0mdebug[0m] [0mSummary for JUnit not available.[0m
+[0m[[0mdebug[0m] [0mSummary for specs2 not available.[0m
+[0m[[0minfo[0m] [0mPassed: Total 10, Failed 0, Errors 0, Passed 10[0m
+[0m[[0mdebug[0m] [0mPassed tests:[0m
+[0m[[0mdebug[0m] [0m	test.DefaultTablesServiceTest[0m
+[0m[[0mdebug[0m] [0m	ModelsTest[0m
+[0m[[0mdebug[0m] [0m	ApplicationTest[0m
+[0m[[0mdebug[0m] [0m	IntegrationTest[0m
+[0m[[0mdebug[0m] [0m	test.DefaultLoginServiceTest[0m

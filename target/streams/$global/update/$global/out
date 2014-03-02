@@ -7,7 +7,7 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies for default#database-sample_2.10;1.0-SNAPSHOT [compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies default#database-sample_2.10;1.0-SNAPSHOT->org.scala-lang#scala-library;2.10.2 [compile->default(compile)][0m
 [0m[[0minfo[0m] [0mResolving org.scala-lang#scala-library;2.10.2 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@7b2b01[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@1e77305[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.scala-lang#scala-library;2.10.2[0m
 [0m[[0mdebug[0m] [0m	local: revision in cache: org.scala-lang#scala-library;2.10.2[0m
 [0m[[0mdebug[0m] [0m	found org.scala-lang#scala-library;2.10.2 in sbt-chain[0m
@@ -755,6 +755,84 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies net.sf.ehcache#ehcache-core;2.6.6->org.slf4j#slf4j-api;1.7.5 [runtime->runtime(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies net.sf.ehcache#ehcache-core;2.6.6->org.slf4j#slf4j-api;1.7.5 [runtime->compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-cache_2.10;2.2.1->net.sf.ehcache#ehcache-core;2.6.6 [compile->master][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#database-sample_2.10;1.0-SNAPSHOT->com.google.inject#guice;4.0-beta [compile->default(compile)][0m
+[0m[[0minfo[0m] [0mResolving com.google.inject#guice;4.0-beta ...[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: com.google.inject#guice;4.0-beta {compile=[default(compile)]}[0m
+[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: com.google.inject#guice;4.0-beta[0m
+[0m[[0mdebug[0m] [0m	local: revision in cache: com.google.inject#guice;4.0-beta[0m
+[0m[[0mdebug[0m] [0m	found com.google.inject#guice;4.0-beta in sbt-chain[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#database-sample_2.10;1.0-SNAPSHOT->com.google.inject#guice;4.0-beta [compile->runtime][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#database-sample_2.10;1.0-SNAPSHOT->com.google.inject#guice;4.0-beta [compile->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->javax.inject#javax.inject;1 [compile->master(*)][0m
+[0m[[0minfo[0m] [0mResolving javax.inject#javax.inject;1 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: javax.inject#javax.inject;1 {compile=[compile(*), master(*)], runtime=[runtime(*)]}[0m
+[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: javax.inject#javax.inject;1[0m
+[0m[[0mdebug[0m] [0m	local: revision in cache: javax.inject#javax.inject;1[0m
+[0m[[0mdebug[0m] [0m	found javax.inject#javax.inject;1 in sbt-chain[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->javax.inject#javax.inject;1 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->aopalliance#aopalliance;1.0 [compile->master(*)][0m
+[0m[[0minfo[0m] [0mResolving aopalliance#aopalliance;1.0 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: aopalliance#aopalliance;1.0 {compile=[compile(*), master(*)], runtime=[runtime(*)]}[0m
+[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: aopalliance#aopalliance;1.0[0m
+[0m[[0mdebug[0m] [0m	local: revision in cache: aopalliance#aopalliance;1.0[0m
+[0m[[0mdebug[0m] [0m	found aopalliance#aopalliance;1.0 in sbt-chain[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->aopalliance#aopalliance;1.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;11.0.1 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;14.0.1 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;11.0.1 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;14.0.1 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->cglib#cglib;3.0 [compile->master(*)][0m
+[0m[[0minfo[0m] [0mResolving cglib#cglib;3.0 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: cglib#cglib;3.0 {compile=[compile(*), master(*)], runtime=[runtime(*)]}[0m
+[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: cglib#cglib;3.0[0m
+[0m[[0mdebug[0m] [0m	local: revision in cache: cglib#cglib;3.0[0m
+[0m[[0mdebug[0m] [0m	found cglib#cglib;3.0 in sbt-chain[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->cglib#cglib;3.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies cglib#cglib;3.0->org.ow2.asm#asm;4.0 [compile->master(*)][0m
+[0m[[0minfo[0m] [0mResolving org.ow2.asm#asm;4.0 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.ow2.asm#asm;4.0 {compile=[compile(*), master(*)], runtime=[runtime(*)]}[0m
+[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.ow2.asm#asm;4.0[0m
+[0m[[0mdebug[0m] [0m	local: revision in cache: org.ow2.asm#asm;4.0[0m
+[0m[[0mdebug[0m] [0m	found org.ow2.asm#asm;4.0 in sbt-chain[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies cglib#cglib;3.0->org.ow2.asm#asm;4.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->cglib#cglib;3.0 [compile->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->cglib#cglib;3.0 [compile->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies cglib#cglib;3.0->org.ow2.asm#asm;4.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies cglib#cglib;3.0->org.ow2.asm#asm;4.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->org.ow2.asm#asm-util;4.0 [compile->master(*)][0m
+[0m[[0minfo[0m] [0mResolving org.ow2.asm#asm-util;4.0 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.ow2.asm#asm-util;4.0 {compile=[compile(*), master(*)], runtime=[runtime(*)]}[0m
+[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.ow2.asm#asm-util;4.0[0m
+[0m[[0mdebug[0m] [0m	local: revision in cache: org.ow2.asm#asm-util;4.0[0m
+[0m[[0mdebug[0m] [0m	found org.ow2.asm#asm-util;4.0 in sbt-chain[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->org.ow2.asm#asm-util;4.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-util;4.0->org.ow2.asm#asm-tree;4.0 [compile->master(*)][0m
+[0m[[0minfo[0m] [0mResolving org.ow2.asm#asm-tree;4.0 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.ow2.asm#asm-tree;4.0 {compile=[compile(*), master(*)], runtime=[runtime(*)]}[0m
+[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.ow2.asm#asm-tree;4.0[0m
+[0m[[0mdebug[0m] [0m	local: revision in cache: org.ow2.asm#asm-tree;4.0[0m
+[0m[[0mdebug[0m] [0m	found org.ow2.asm#asm-tree;4.0 in sbt-chain[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-util;4.0->org.ow2.asm#asm-tree;4.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-tree;4.0->org.ow2.asm#asm;4.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-tree;4.0->org.ow2.asm#asm;4.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->org.ow2.asm#asm-util;4.0 [compile->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->org.ow2.asm#asm-util;4.0 [compile->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-util;4.0->org.ow2.asm#asm-tree;4.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-util;4.0->org.ow2.asm#asm-tree;4.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-tree;4.0->org.ow2.asm#asm;4.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-tree;4.0->org.ow2.asm#asm;4.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->javax.inject#javax.inject;1 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->javax.inject#javax.inject;1 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->aopalliance#aopalliance;1.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->aopalliance#aopalliance;1.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;11.0.1 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;14.0.1 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;14.0.1 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->cglib#cglib;3.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->cglib#cglib;3.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->org.ow2.asm#asm-util;4.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->org.ow2.asm#asm-util;4.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#database-sample_2.10;1.0-SNAPSHOT->com.google.inject#guice;4.0-beta [compile->master][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies default#database-sample_2.10;1.0-SNAPSHOT->com.typesafe.play#play_2.10;2.2.1 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies default#database-sample_2.10;1.0-SNAPSHOT->com.typesafe.play#play-java_2.10;2.2.1 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0mresolving dependencies for configuration 'runtime'[0m
@@ -1179,6 +1257,45 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies net.sf.ehcache#ehcache-core;2.6.6->org.slf4j#slf4j-api;1.7.5 [runtime->runtime(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies net.sf.ehcache#ehcache-core;2.6.6->org.slf4j#slf4j-api;1.7.5 [runtime->compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-cache_2.10;2.2.1->net.sf.ehcache#ehcache-core;2.6.6 [compile->master][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#database-sample_2.10;1.0-SNAPSHOT->com.google.inject#guice;4.0-beta [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#database-sample_2.10;1.0-SNAPSHOT->com.google.inject#guice;4.0-beta [compile->runtime][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#database-sample_2.10;1.0-SNAPSHOT->com.google.inject#guice;4.0-beta [compile->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->javax.inject#javax.inject;1 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->javax.inject#javax.inject;1 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->aopalliance#aopalliance;1.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->aopalliance#aopalliance;1.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;11.0.1 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;14.0.1 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;11.0.1 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;14.0.1 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->cglib#cglib;3.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->cglib#cglib;3.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies cglib#cglib;3.0->org.ow2.asm#asm;4.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies cglib#cglib;3.0->org.ow2.asm#asm;4.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->org.ow2.asm#asm-util;4.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->org.ow2.asm#asm-util;4.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-util;4.0->org.ow2.asm#asm-tree;4.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-util;4.0->org.ow2.asm#asm-tree;4.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-tree;4.0->org.ow2.asm#asm;4.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-tree;4.0->org.ow2.asm#asm;4.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->javax.inject#javax.inject;1 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->javax.inject#javax.inject;1 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->aopalliance#aopalliance;1.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->aopalliance#aopalliance;1.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;11.0.1 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;14.0.1 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;14.0.1 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->cglib#cglib;3.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->cglib#cglib;3.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies cglib#cglib;3.0->org.ow2.asm#asm;4.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies cglib#cglib;3.0->org.ow2.asm#asm;4.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->org.ow2.asm#asm-util;4.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->org.ow2.asm#asm-util;4.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-util;4.0->org.ow2.asm#asm-tree;4.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-util;4.0->org.ow2.asm#asm-tree;4.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-tree;4.0->org.ow2.asm#asm;4.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-tree;4.0->org.ow2.asm#asm;4.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#database-sample_2.10;1.0-SNAPSHOT->com.google.inject#guice;4.0-beta [compile->master][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies default#database-sample_2.10;1.0-SNAPSHOT->com.typesafe.play#play_2.10;2.2.1 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies default#database-sample_2.10;1.0-SNAPSHOT->com.typesafe.play#play-java_2.10;2.2.1 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0mresolving dependencies for configuration 'test'[0m
@@ -1604,6 +1721,45 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies net.sf.ehcache#ehcache-core;2.6.6->org.slf4j#slf4j-api;1.7.5 [runtime->runtime(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies net.sf.ehcache#ehcache-core;2.6.6->org.slf4j#slf4j-api;1.7.5 [runtime->compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-cache_2.10;2.2.1->net.sf.ehcache#ehcache-core;2.6.6 [compile->master][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#database-sample_2.10;1.0-SNAPSHOT->com.google.inject#guice;4.0-beta [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#database-sample_2.10;1.0-SNAPSHOT->com.google.inject#guice;4.0-beta [compile->runtime][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#database-sample_2.10;1.0-SNAPSHOT->com.google.inject#guice;4.0-beta [compile->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->javax.inject#javax.inject;1 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->javax.inject#javax.inject;1 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->aopalliance#aopalliance;1.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->aopalliance#aopalliance;1.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;11.0.1 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;14.0.1 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;11.0.1 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;14.0.1 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->cglib#cglib;3.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->cglib#cglib;3.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies cglib#cglib;3.0->org.ow2.asm#asm;4.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies cglib#cglib;3.0->org.ow2.asm#asm;4.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->org.ow2.asm#asm-util;4.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->org.ow2.asm#asm-util;4.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-util;4.0->org.ow2.asm#asm-tree;4.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-util;4.0->org.ow2.asm#asm-tree;4.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-tree;4.0->org.ow2.asm#asm;4.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-tree;4.0->org.ow2.asm#asm;4.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->javax.inject#javax.inject;1 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->javax.inject#javax.inject;1 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->aopalliance#aopalliance;1.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->aopalliance#aopalliance;1.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;11.0.1 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;14.0.1 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;14.0.1 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->cglib#cglib;3.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->cglib#cglib;3.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies cglib#cglib;3.0->org.ow2.asm#asm;4.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies cglib#cglib;3.0->org.ow2.asm#asm;4.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->org.ow2.asm#asm-util;4.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->org.ow2.asm#asm-util;4.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-util;4.0->org.ow2.asm#asm-tree;4.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-util;4.0->org.ow2.asm#asm-tree;4.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-tree;4.0->org.ow2.asm#asm;4.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-tree;4.0->org.ow2.asm#asm;4.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#database-sample_2.10;1.0-SNAPSHOT->com.google.inject#guice;4.0-beta [compile->master][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies default#database-sample_2.10;1.0-SNAPSHOT->com.typesafe.play#play_2.10;2.2.1 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies default#database-sample_2.10;1.0-SNAPSHOT->com.typesafe.play#play-java_2.10;2.2.1 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies default#database-sample_2.10;1.0-SNAPSHOT->com.typesafe.play#play-test_2.10;2.2.1 [test->default(compile)][0m
@@ -2952,6 +3108,45 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies net.sf.ehcache#ehcache-core;2.6.6->org.slf4j#slf4j-api;1.7.5 [runtime->runtime(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies net.sf.ehcache#ehcache-core;2.6.6->org.slf4j#slf4j-api;1.7.5 [runtime->compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-cache_2.10;2.2.1->net.sf.ehcache#ehcache-core;2.6.6 [compile->master][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#database-sample_2.10;1.0-SNAPSHOT->com.google.inject#guice;4.0-beta [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#database-sample_2.10;1.0-SNAPSHOT->com.google.inject#guice;4.0-beta [compile->runtime][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#database-sample_2.10;1.0-SNAPSHOT->com.google.inject#guice;4.0-beta [compile->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->javax.inject#javax.inject;1 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->javax.inject#javax.inject;1 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->aopalliance#aopalliance;1.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->aopalliance#aopalliance;1.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;11.0.1 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;14.0.1 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;11.0.1 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;14.0.1 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->cglib#cglib;3.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->cglib#cglib;3.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies cglib#cglib;3.0->org.ow2.asm#asm;4.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies cglib#cglib;3.0->org.ow2.asm#asm;4.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->org.ow2.asm#asm-util;4.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->org.ow2.asm#asm-util;4.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-util;4.0->org.ow2.asm#asm-tree;4.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-util;4.0->org.ow2.asm#asm-tree;4.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-tree;4.0->org.ow2.asm#asm;4.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-tree;4.0->org.ow2.asm#asm;4.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->javax.inject#javax.inject;1 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->javax.inject#javax.inject;1 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->aopalliance#aopalliance;1.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->aopalliance#aopalliance;1.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;11.0.1 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;14.0.1 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;14.0.1 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->cglib#cglib;3.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->cglib#cglib;3.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies cglib#cglib;3.0->org.ow2.asm#asm;4.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies cglib#cglib;3.0->org.ow2.asm#asm;4.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->org.ow2.asm#asm-util;4.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->org.ow2.asm#asm-util;4.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-util;4.0->org.ow2.asm#asm-tree;4.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-util;4.0->org.ow2.asm#asm-tree;4.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-tree;4.0->org.ow2.asm#asm;4.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-tree;4.0->org.ow2.asm#asm;4.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#database-sample_2.10;1.0-SNAPSHOT->com.google.inject#guice;4.0-beta [compile->master][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies default#database-sample_2.10;1.0-SNAPSHOT->com.typesafe.play#play_2.10;2.2.1 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies default#database-sample_2.10;1.0-SNAPSHOT->com.typesafe.play#play-java_2.10;2.2.1 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies for default#database-sample_2.10;1.0-SNAPSHOT [optional][0m
@@ -3379,6 +3574,45 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies net.sf.ehcache#ehcache-core;2.6.6->org.slf4j#slf4j-api;1.7.5 [runtime->runtime(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies net.sf.ehcache#ehcache-core;2.6.6->org.slf4j#slf4j-api;1.7.5 [runtime->compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-cache_2.10;2.2.1->net.sf.ehcache#ehcache-core;2.6.6 [compile->master][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#database-sample_2.10;1.0-SNAPSHOT->com.google.inject#guice;4.0-beta [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#database-sample_2.10;1.0-SNAPSHOT->com.google.inject#guice;4.0-beta [compile->runtime][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#database-sample_2.10;1.0-SNAPSHOT->com.google.inject#guice;4.0-beta [compile->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->javax.inject#javax.inject;1 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->javax.inject#javax.inject;1 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->aopalliance#aopalliance;1.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->aopalliance#aopalliance;1.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;11.0.1 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;14.0.1 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;11.0.1 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;14.0.1 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->cglib#cglib;3.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->cglib#cglib;3.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies cglib#cglib;3.0->org.ow2.asm#asm;4.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies cglib#cglib;3.0->org.ow2.asm#asm;4.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->org.ow2.asm#asm-util;4.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->org.ow2.asm#asm-util;4.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-util;4.0->org.ow2.asm#asm-tree;4.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-util;4.0->org.ow2.asm#asm-tree;4.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-tree;4.0->org.ow2.asm#asm;4.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-tree;4.0->org.ow2.asm#asm;4.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->javax.inject#javax.inject;1 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->javax.inject#javax.inject;1 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->aopalliance#aopalliance;1.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->aopalliance#aopalliance;1.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;11.0.1 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;14.0.1 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;14.0.1 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->cglib#cglib;3.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->cglib#cglib;3.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies cglib#cglib;3.0->org.ow2.asm#asm;4.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies cglib#cglib;3.0->org.ow2.asm#asm;4.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->org.ow2.asm#asm-util;4.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->org.ow2.asm#asm-util;4.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-util;4.0->org.ow2.asm#asm-tree;4.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-util;4.0->org.ow2.asm#asm-tree;4.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-tree;4.0->org.ow2.asm#asm;4.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-tree;4.0->org.ow2.asm#asm;4.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#database-sample_2.10;1.0-SNAPSHOT->com.google.inject#guice;4.0-beta [compile->master][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies default#database-sample_2.10;1.0-SNAPSHOT->com.typesafe.play#play_2.10;2.2.1 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies default#database-sample_2.10;1.0-SNAPSHOT->com.typesafe.play#play-java_2.10;2.2.1 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies for default#database-sample_2.10;1.0-SNAPSHOT [optional][0m
@@ -3806,6 +4040,45 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies net.sf.ehcache#ehcache-core;2.6.6->org.slf4j#slf4j-api;1.7.5 [runtime->runtime(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies net.sf.ehcache#ehcache-core;2.6.6->org.slf4j#slf4j-api;1.7.5 [runtime->compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-cache_2.10;2.2.1->net.sf.ehcache#ehcache-core;2.6.6 [compile->master][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#database-sample_2.10;1.0-SNAPSHOT->com.google.inject#guice;4.0-beta [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#database-sample_2.10;1.0-SNAPSHOT->com.google.inject#guice;4.0-beta [compile->runtime][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#database-sample_2.10;1.0-SNAPSHOT->com.google.inject#guice;4.0-beta [compile->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->javax.inject#javax.inject;1 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->javax.inject#javax.inject;1 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->aopalliance#aopalliance;1.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->aopalliance#aopalliance;1.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;11.0.1 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;14.0.1 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;11.0.1 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;14.0.1 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->cglib#cglib;3.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->cglib#cglib;3.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies cglib#cglib;3.0->org.ow2.asm#asm;4.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies cglib#cglib;3.0->org.ow2.asm#asm;4.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->org.ow2.asm#asm-util;4.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->org.ow2.asm#asm-util;4.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-util;4.0->org.ow2.asm#asm-tree;4.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-util;4.0->org.ow2.asm#asm-tree;4.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-tree;4.0->org.ow2.asm#asm;4.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-tree;4.0->org.ow2.asm#asm;4.0 [compile->compile(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->javax.inject#javax.inject;1 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->javax.inject#javax.inject;1 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->aopalliance#aopalliance;1.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->aopalliance#aopalliance;1.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;11.0.1 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;14.0.1 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->com.google.guava#guava;14.0.1 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->cglib#cglib;3.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->cglib#cglib;3.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies cglib#cglib;3.0->org.ow2.asm#asm;4.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies cglib#cglib;3.0->org.ow2.asm#asm;4.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->org.ow2.asm#asm-util;4.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies com.google.inject#guice;4.0-beta->org.ow2.asm#asm-util;4.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-util;4.0->org.ow2.asm#asm-tree;4.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-util;4.0->org.ow2.asm#asm-tree;4.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-tree;4.0->org.ow2.asm#asm;4.0 [runtime->runtime(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.ow2.asm#asm-tree;4.0->org.ow2.asm#asm;4.0 [runtime->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies default#database-sample_2.10;1.0-SNAPSHOT->com.google.inject#guice;4.0-beta [compile->master][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies default#database-sample_2.10;1.0-SNAPSHOT->com.typesafe.play#play_2.10;2.2.1 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies default#database-sample_2.10;1.0-SNAPSHOT->com.typesafe.play#play-java_2.10;2.2.1 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies default#database-sample_2.10;1.0-SNAPSHOT->com.typesafe.play#play-test_2.10;2.2.1 [test->default(compile)][0m
@@ -4979,6 +5252,7 @@
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] com.typesafe.play#play-java-jdbc_2.10;2.2.1!play-java-jdbc_2.10.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] com.typesafe.play#play-java-ebean_2.10;2.2.1!play-java-ebean_2.10.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] com.typesafe.play#play-cache_2.10;2.2.1!play-cache_2.10.jar[0m
+[0m[[0mdebug[0m] [0m	[NOT REQUIRED] com.google.inject#guice;4.0-beta!guice.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] com.typesafe.play#play_2.10;2.2.1!play_2.10.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] com.typesafe.play#play-java_2.10;2.2.1!play-java_2.10.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] com.typesafe.play#play-jdbc_2.10;2.2.1!play-jdbc_2.10.jar[0m
@@ -5040,6 +5314,12 @@
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.avaje.ebeanorm#avaje-ebeanorm-agent;3.2.1!avaje-ebeanorm-agent.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.hibernate.javax.persistence#hibernate-jpa-2.0-api;1.0.1.Final!hibernate-jpa-2.0-api.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] net.sf.ehcache#ehcache-core;2.6.6!ehcache-core.jar[0m
+[0m[[0mdebug[0m] [0m	[NOT REQUIRED] javax.inject#javax.inject;1!javax.inject.jar[0m
+[0m[[0mdebug[0m] [0m	[NOT REQUIRED] aopalliance#aopalliance;1.0!aopalliance.jar[0m
+[0m[[0mdebug[0m] [0m	[NOT REQUIRED] cglib#cglib;3.0!cglib.jar[0m
+[0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.ow2.asm#asm-util;4.0!asm-util.jar[0m
+[0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.ow2.asm#asm;4.0!asm.jar[0m
+[0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.ow2.asm#asm-tree;4.0!asm-tree.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] com.typesafe.play#play-test_2.10;2.2.1!play-test_2.10.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] junit#junit;4.11!junit.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.specs2#specs2_2.10;2.1.1!specs2_2.10.jar[0m
@@ -5100,7 +5380,7 @@
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#scala-compiler;2.10.2!scala-compiler.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#jline;2.10.2!jline.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.fusesource.jansi#jansi;1.4!jansi.jar[0m
-[0m[[0mdebug[0m] [0m:: resolution report :: resolve 1588ms :: artifacts dl 46ms[0m
+[0m[[0mdebug[0m] [0m:: resolution report :: resolve 3459ms :: artifacts dl 132ms[0m
 [0m[[0mdebug[0m] [0m	report for default#database-sample_2.10;1.0-SNAPSHOT compile produced in /home/khabat95/workspace/database-sample/target/resolution-cache/reports/default-database-sample_2.10-compile.xml[0m
 [0m[[0mdebug[0m] [0m	report for default#database-sample_2.10;1.0-SNAPSHOT runtime produced in /home/khabat95/workspace/database-sample/target/resolution-cache/reports/default-database-sample_2.10-runtime.xml[0m
 [0m[[0mdebug[0m] [0m	report for default#database-sample_2.10;1.0-SNAPSHOT test produced in /home/khabat95/workspace/database-sample/target/resolution-cache/reports/default-database-sample_2.10-test.xml[0m
@@ -5114,5 +5394,5 @@
 [0m[[0mdebug[0m] [0m	report for default#database-sample_2.10;1.0-SNAPSHOT docs produced in /home/khabat95/workspace/database-sample/target/resolution-cache/reports/default-database-sample_2.10-docs.xml[0m
 [0m[[0mdebug[0m] [0m	report for default#database-sample_2.10;1.0-SNAPSHOT pom produced in /home/khabat95/workspace/database-sample/target/resolution-cache/reports/default-database-sample_2.10-pom.xml[0m
 [0m[[0mdebug[0m] [0m	report for default#database-sample_2.10;1.0-SNAPSHOT scala-tool produced in /home/khabat95/workspace/database-sample/target/resolution-cache/reports/default-database-sample_2.10-scala-tool.xml[0m
-[0m[[0mdebug[0m] [0m	resolve done (1588ms resolve - 46ms download)[0m
+[0m[[0mdebug[0m] [0m	resolve done (3459ms resolve - 132ms download)[0m
 [0m[[0minfo[0m] [0mDone updating.[0m
