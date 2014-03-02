@@ -6,15 +6,15 @@ public class Login {
 
 	private String email;
 	private String password;
-	
+
 	public Login() {
 	}
-	
+
 	public Login(String email, String password) {
 		this.email = email;
 		this.password = password;
 	}
-	
+
 	public String getEmail() {
 		return email;
 	}
@@ -41,7 +41,7 @@ public class Login {
 	public DbUser toDbUser() {
 		return new DbUser(email, password);
 	}
-	
+
 	public static Login fromDbUser(DbUser dbUser) {
 		return new Login(dbUser.getEmail(), dbUser.getPassword());
 	}
@@ -82,5 +82,5 @@ public class Login {
 	public String toString() {
 		return "Login [email=" + email + ", password=" + password + "]";
 	}
-	
+
 }

@@ -10,14 +10,14 @@ import com.google.common.collect.FluentIterable;
 public class User {
 
 	private String email;
-	
+
 	public User() {
 	}
 
 	public User(String email) {
 		this.email = email;
 	}
-	
+
 	public String getEmail() {
 		return email;
 	}
@@ -36,31 +36,33 @@ public class User {
 	public DbUser toDbUser() {
 		return new DbUser(email, "");
 	}
-	
+
 	public static User fromDbUser(DbUser dbUser) {
 		return new User(dbUser.getEmail());
 	}
-	
+
 	private static Function<DbUser, User> dbToDtoTransformFunction = new Function<DbUser, User>() {
 		@Override
 		public User apply(DbUser dbUser) {
 			return fromDbUser(dbUser);
 		}
 	};
-	
+
 	private static Function<User, DbUser> dtoToDbTransformFunction = new Function<User, DbUser>() {
 		@Override
 		public DbUser apply(User user) {
 			return user.toDbUser();
 		}
 	};
-	
+
 	public static List<User> fromDbUserList(List<DbUser> list) {
-		return FluentIterable.from(list).transform(dbToDtoTransformFunction).toList();
+		return FluentIterable.from(list).transform(dbToDtoTransformFunction)
+				.toList();
 	}
 
 	public static List<DbUser> toDbUserList(List<User> list) {
-		return FluentIterable.from(list).transform(dtoToDbTransformFunction).toList();
+		return FluentIterable.from(list).transform(dtoToDbTransformFunction)
+				.toList();
 	}
 
 	@Override
@@ -92,5 +94,5 @@ public class User {
 	public String toString() {
 		return "User [email=" + email + "]";
 	}
-	
+
 }

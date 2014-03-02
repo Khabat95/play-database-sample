@@ -18,7 +18,7 @@ public class Application extends Controller {
 
 	@Inject
 	private ICreateAccountService createAccountService;
-	
+
 	@Security.Authenticated(Secured.class)
 	public static Result index() {
 		return redirect(routes.Tables.index());
@@ -33,7 +33,7 @@ public class Application extends Controller {
 	}
 
 	public Result authenticate() {
-		if(loginService.authenticate()) {
+		if (loginService.authenticate()) {
 			session().clear();
 			session("email", loginService.getFilledForm().get().getEmail());
 			return redirect(routes.Application.index());
@@ -45,12 +45,13 @@ public class Application extends Controller {
 	public Result submitAccount() {
 		if (createAccountService.submitAccount()) {
 			session().clear();
-			session("email", createAccountService.getFilledForm().get().getEmail());
+			session("email", createAccountService.getFilledForm().get()
+					.getEmail());
 			return redirect(routes.Application.index());
 		} else {
-			return badRequest(createAccount.render(createAccountService.getFilledForm()));
+			return badRequest(createAccount.render(createAccountService
+					.getFilledForm()));
 		}
 	}
-
 
 }

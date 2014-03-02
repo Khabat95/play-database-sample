@@ -21,9 +21,11 @@ public class DatabaseTest extends AbstractTest {
 	@Test
 	public void tryCreateUser() {
 		// User already created
-		assertNull(dbManager.createUser(new DbUser("sdubois87@gmail.com", "sdubois")));
+		assertNull(dbManager.createUser(new DbUser("sdubois87@gmail.com",
+				"sdubois")));
 		// New user
-		assertNotNull(dbManager.createUser(new DbUser("sdubois86@gmail.com", "sdubois86")));
+		assertNotNull(dbManager.createUser(new DbUser("sdubois86@gmail.com",
+				"sdubois86")));
 		DbUser sdubois86 = dbManager.getUser("sdubois86@gmail.com");
 		assertNotNull(sdubois86);
 		assertEquals("sdubois86", sdubois86.getPassword());
@@ -49,7 +51,8 @@ public class DatabaseTest extends AbstractTest {
 				TableType.OMAHA, TableLimit.LIMIT, 2, new ArrayList<DbUser>())));
 		// New table
 		assertNotNull(dbManager.createPokerTable(new DbPokerTable("Las Vegas",
-				TableType.HOLDEM, TableLimit.NO_LIMIT, 9, new ArrayList<DbUser>())));
+				TableType.HOLDEM, TableLimit.NO_LIMIT, 9,
+				new ArrayList<DbUser>())));
 		DbPokerTable table = dbManager.getPokerTable("Las Vegas");
 		assertNotNull(table);
 		assertEquals(TableType.HOLDEM, table.getTableType());
@@ -70,32 +73,43 @@ public class DatabaseTest extends AbstractTest {
 	@Test
 	public void tryAddUserToPokerTable() {
 		// Inexistent table
-		assertFalse(dbManager.addUserToPokerTable("sdubois87@gmail.com", "Las Vegas"));
+		assertFalse(dbManager.addUserToPokerTable("sdubois87@gmail.com",
+				"Las Vegas"));
 		// Inexistent user
-		assertFalse(dbManager.addUserToPokerTable("sdubois86@gmail.com", "Sydney"));
+		assertFalse(dbManager.addUserToPokerTable("sdubois86@gmail.com",
+				"Sydney"));
 		// Inexistent user and table
-		assertFalse(dbManager.addUserToPokerTable("sdubois86@gmail.com", "Las Vegas"));
+		assertFalse(dbManager.addUserToPokerTable("sdubois86@gmail.com",
+				"Las Vegas"));
 		// Existent user and table
-		assertTrue(dbManager.addUserToPokerTable("sdubois87@gmail.com", "Sydney"));
+		assertTrue(dbManager.addUserToPokerTable("sdubois87@gmail.com",
+				"Sydney"));
 	}
-	
+
 	@Test
 	public void tryRemoveUserToPokerTable() {
 		// Inexistent table
-		assertFalse(dbManager.removeUserFromPokerTable("sdubois87@gmail.com", "Las Vegas"));
+		assertFalse(dbManager.removeUserFromPokerTable("sdubois87@gmail.com",
+				"Las Vegas"));
 		// Inexistent user
-		assertFalse(dbManager.removeUserFromPokerTable("sdubois86@gmail.com", "Sydney"));
+		assertFalse(dbManager.removeUserFromPokerTable("sdubois86@gmail.com",
+				"Sydney"));
 		// Inexistent user and table
-		assertFalse(dbManager.removeUserFromPokerTable("sdubois86@gmail.com", "Las Vegas"));
+		assertFalse(dbManager.removeUserFromPokerTable("sdubois86@gmail.com",
+				"Las Vegas"));
 		// User not on table
-		assertFalse(dbManager.removeUserFromPokerTable("sdubois87@gmail.com", "Sydney"));
+		assertFalse(dbManager.removeUserFromPokerTable("sdubois87@gmail.com",
+				"Sydney"));
 		// User on table
-		assertTrue(dbManager.addUserToPokerTable("sdubois87@gmail.com", "Paris"));
-		assertTrue(dbManager.removeUserFromPokerTable("sdubois87@gmail.com", "Paris"));
+		assertTrue(dbManager
+				.addUserToPokerTable("sdubois87@gmail.com", "Paris"));
+		assertTrue(dbManager.removeUserFromPokerTable("sdubois87@gmail.com",
+				"Paris"));
 		// User no more on table
-		assertFalse(dbManager.removeUserFromPokerTable("sdubois87@gmail.com", "Paris"));
+		assertFalse(dbManager.removeUserFromPokerTable("sdubois87@gmail.com",
+				"Paris"));
 	}
-	
+
 	@Test
 	public void globalTest() {
 		DbUser user;
@@ -110,7 +124,7 @@ public class DatabaseTest extends AbstractTest {
 				"sdubois")));
 		assertNull(dbManager.authenticate(new DbUser("sdubois87@msn.com",
 				"sdubois87")));
-		
+
 		assertEquals(1, dbManager.getAllUsers().size());
 
 		user = dbManager.getUser("sdubois87@gmail.com");

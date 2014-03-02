@@ -13,7 +13,7 @@ import test.AbstractTest;
 public class LoginTest extends AbstractTest {
 
 	DatabaseManager dbManager = new DatabaseManager();
-	
+
 	@Test
 	public void dtoConversion() {
 		// Same email and password

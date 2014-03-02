@@ -1,4 +1,5 @@
 package test;
+
 import org.junit.Test;
 
 import play.libs.F.Callback;

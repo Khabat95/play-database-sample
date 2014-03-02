@@ -11,14 +11,15 @@ public class Account {
 
 	public Account() {
 	}
-	
-	public Account(String email, String confirmEmail, String password, String confirmPassword) {
+
+	public Account(String email, String confirmEmail, String password,
+			String confirmPassword) {
 		this.email = email;
 		this.confirmEmail = confirmEmail;
 		this.password = password;
 		this.confirmPassword = confirmPassword;
 	}
-	
+
 	public String getEmail() {
 		return email;
 	}
@@ -66,9 +67,10 @@ public class Account {
 	public DbUser toDbUser() {
 		return new DbUser(email, password);
 	}
-	
+
 	public static Account fromDbUser(DbUser dbUser) {
-		return new Account(dbUser.getEmail(), dbUser.getEmail(), dbUser.getPassword(), dbUser.getPassword());
+		return new Account(dbUser.getEmail(), dbUser.getEmail(),
+				dbUser.getPassword(), dbUser.getPassword());
 	}
 
 	@Override
@@ -123,5 +125,5 @@ public class Account {
 				+ ", password=" + password + ", confirmPassword="
 				+ confirmPassword + "]";
 	}
-	
+
 }

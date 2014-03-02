@@ -18,13 +18,15 @@ public class Tables extends Controller {
 
 	@Inject
 	private ITableService tableService;
-	
+
 	public Result index() {
-		return ok(tables.render(tablesService.getTableList(), tablesService.getForm()));
+		return ok(tables.render(tablesService.getTableList(),
+				tablesService.getForm()));
 	}
 
 	public Result openTable(String name) {
-		return ok(table.render(tableService.getTable(name), tableService.getForm()));
+		return ok(table.render(tableService.getTable(name),
+				tableService.getForm()));
 	}
 
 	public Result newTable() {
@@ -42,13 +44,14 @@ public class Tables extends Controller {
 	}
 
 	public Result addUser(String tableName) {
-		if(tableService.addUser(tableName)) {
+		if (tableService.addUser(tableName)) {
 			return redirect(routes.Tables.openTable(tableName));
 		} else {
-			return badRequest(table.render(tableService.getTable(tableName), tableService.getFilledForm()));
+			return badRequest(table.render(tableService.getTable(tableName),
+					tableService.getFilledForm()));
 		}
 	}
-	
+
 	public Result removeUser(String tableName, String email) {
 		tableService.removeUser(tableName, email);
 		return redirect(routes.Tables.openTable(tableName));

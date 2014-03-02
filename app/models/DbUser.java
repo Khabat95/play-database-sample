@@ -22,7 +22,7 @@ public class DbUser extends Model {
 
 	public DbUser() {
 	}
-	
+
 	public DbUser(String email, String password) {
 		this.email = email;
 		this.password = password;
@@ -33,7 +33,7 @@ public class DbUser extends Model {
 		this.password = password;
 		this.pokerTable = pokerTable;
 	}
-	
+
 	public String getEmail() {
 		return email;
 	}
@@ -45,19 +45,19 @@ public class DbUser extends Model {
 	public String getPassword() {
 		return password;
 	}
-	
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
 	public DbPokerTable getPokerTable() {
 		return pokerTable;
 	}
-	
+
 	public void setPokerTable(DbPokerTable pokerTable) {
 		this.pokerTable = pokerTable;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -92,5 +92,5 @@ public class DbUser extends Model {
 	public String toString() {
 		return "DbUser [email=" + email + ", password=" + password + "]";
 	}
-	
+
 }

@@ -7,8 +7,12 @@ import play.data.Form;
 
 public interface ITablesService {
 	List<PokerTable> getTableList();
+
 	Form<PokerTable> getForm();
+
 	Form<PokerTable> getFilledForm();
+
 	boolean newTable();
+
 	boolean deleteTable(String name);
 }

@@ -17,7 +17,7 @@ public class PokerTable {
 	private TableLimit tableLimit;
 	private Integer seatNumber;
 	private List<User> users = new ArrayList<User>();
-	
+
 	public PokerTable() {
 	}
 
@@ -49,7 +49,7 @@ public class PokerTable {
 	public List<User> getUsers() {
 		return users;
 	}
-	
+
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -69,7 +69,7 @@ public class PokerTable {
 	public void setUsers(List<User> users) {
 		this.users = users;
 	}
-	
+
 	public String validate() {
 		if (name.isEmpty() || tableType == null || tableLimit == null
 				|| seatNumber == null) {
@@ -79,51 +79,64 @@ public class PokerTable {
 	}
 
 	public DbPokerTable toDbPokerTable() {
-		if(users == null)
-			return new DbPokerTable(name, tableType, tableLimit, seatNumber, null);
+		if (users == null)
+			return new DbPokerTable(name, tableType, tableLimit, seatNumber,
+					null);
 		else
-			return new DbPokerTable(name, tableType, tableLimit, seatNumber, User.toDbUserList(users));
+			return new DbPokerTable(name, tableType, tableLimit, seatNumber,
+					User.toDbUserList(users));
 	}
-	
+
 	public static PokerTable fromDbPokerTableWithUsers(DbPokerTable dbPokerTable) {
-		return new PokerTable(dbPokerTable.getName(), dbPokerTable.getTableType(), dbPokerTable.getTableLimit(), dbPokerTable.getSeatNumber(), User.fromDbUserList(dbPokerTable.getUsers()));
+		return new PokerTable(dbPokerTable.getName(),
+				dbPokerTable.getTableType(), dbPokerTable.getTableLimit(),
+				dbPokerTable.getSeatNumber(), User.fromDbUserList(dbPokerTable
+						.getUsers()));
 	}
-	
-	public static PokerTable fromDbPokerTableWithoutUsers(DbPokerTable dbPokerTable) {
-		return new PokerTable(dbPokerTable.getName(), dbPokerTable.getTableType(), dbPokerTable.getTableLimit(), dbPokerTable.getSeatNumber(), null);
+
+	public static PokerTable fromDbPokerTableWithoutUsers(
+			DbPokerTable dbPokerTable) {
+		return new PokerTable(dbPokerTable.getName(),
+				dbPokerTable.getTableType(), dbPokerTable.getTableLimit(),
+				dbPokerTable.getSeatNumber(), null);
 	}
-	
+
 	private static Function<DbPokerTable, PokerTable> dbToDtoEagerTransformFunction = new Function<DbPokerTable, PokerTable>() {
 		@Override
 		public PokerTable apply(DbPokerTable dbPokerTable) {
 			return fromDbPokerTableWithUsers(dbPokerTable);
 		}
 	};
-	
+
 	private static Function<DbPokerTable, PokerTable> dbToDtoLazyTransformFunction = new Function<DbPokerTable, PokerTable>() {
 		@Override
 		public PokerTable apply(DbPokerTable dbPokerTable) {
 			return fromDbPokerTableWithoutUsers(dbPokerTable);
 		}
 	};
-	
+
 	private static Function<PokerTable, DbPokerTable> dtoToDbTransformFunction = new Function<PokerTable, DbPokerTable>() {
 		@Override
 		public DbPokerTable apply(PokerTable pokerTable) {
 			return pokerTable.toDbPokerTable();
 		}
 	};
-	
-	public static List<PokerTable> fromDbPokerTableListWithUsers(List<DbPokerTable> list) {
-		return FluentIterable.from(list).transform(dbToDtoEagerTransformFunction).toList();
+
+	public static List<PokerTable> fromDbPokerTableListWithUsers(
+			List<DbPokerTable> list) {
+		return FluentIterable.from(list)
+				.transform(dbToDtoEagerTransformFunction).toList();
 	}
 
-	public static List<PokerTable> fromDbPokerTableListWithoutUsers(List<DbPokerTable> list) {
-		return FluentIterable.from(list).transform(dbToDtoLazyTransformFunction).toList();
+	public static List<PokerTable> fromDbPokerTableListWithoutUsers(
+			List<DbPokerTable> list) {
+		return FluentIterable.from(list)
+				.transform(dbToDtoLazyTransformFunction).toList();
 	}
 
 	public static List<DbPokerTable> toDbPokerTableList(List<PokerTable> list) {
-		return FluentIterable.from(list).transform(dtoToDbTransformFunction).toList();
+		return FluentIterable.from(list).transform(dtoToDbTransformFunction)
+				.toList();
 	}
 
 	@Override
@@ -172,5 +185,5 @@ public class PokerTable {
 				+ ", tableLimit=" + tableLimit + ", seatNumber=" + seatNumber
 				+ "]";
 	}
-	
+
 }

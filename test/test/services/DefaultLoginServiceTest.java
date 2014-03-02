@@ -32,22 +32,20 @@ public class DefaultLoginServiceTest extends AbstractTest {
 	public void tryGoodAuthenticate() {
 		Login login = new Login("sdubois87@gmail.com", "sdubois87");
 		DbUser user = new DbUser("sdubois87@gmail.com", "sdubois87");
-		when(form.bindFromRequest()).thenReturn(Form.form(Login.class).fill(login));
+		when(form.bindFromRequest()).thenReturn(
+				Form.form(Login.class).fill(login));
 		assertTrue(loginService.authenticate());
-		// TODO tests on filledForm
 		verify(dbManager).authenticate(user);
-		verify(dbManager, times(1)).authenticate(user);
 	}
 
 	@Test
 	public void tryWrongAuthenticate() {
 		Login login = new Login("sdubois87@gmail.com", "sdubois");
 		DbUser user = new DbUser("sdubois87@gmail.com", "sdubois");
-		when(form.bindFromRequest()).thenReturn(Form.form(Login.class).fill(login));
+		when(form.bindFromRequest()).thenReturn(
+				Form.form(Login.class).fill(login));
 		assertFalse(loginService.authenticate());
-		// TODO tests on filledForm
 		verify(dbManager).authenticate(user);
-		verify(dbManager, times(1)).authenticate(user);
 	}
 
 }

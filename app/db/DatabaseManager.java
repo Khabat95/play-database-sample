@@ -34,7 +34,7 @@ public class DatabaseManager {
 	public int getUserCount() {
 		return userFinder.findRowCount();
 	}
-	
+
 	public List<DbUser> getAllUsers() {
 		return userFinder.all();
 	}
@@ -61,8 +61,8 @@ public class DatabaseManager {
 
 	public boolean deletePokerTable(String name) {
 		DbPokerTable pokerTable = getPokerTable(name);
-		if(pokerTable != null) {
-			for(DbUser user : pokerTable.getUsers()) {
+		if (pokerTable != null) {
+			for (DbUser user : pokerTable.getUsers()) {
 				user.setPokerTable(null);
 				user.update();
 			}
@@ -75,7 +75,7 @@ public class DatabaseManager {
 	public boolean addUserToPokerTable(String userEmail, String pokerTableName) {
 		DbPokerTable pokerTable = getPokerTable(pokerTableName);
 		DbUser user = getUser(userEmail);
-		if(pokerTable != null && user != null) {
+		if (pokerTable != null && user != null) {
 			user.setPokerTable(pokerTable);
 			user.update();
 			return true;
@@ -83,11 +83,13 @@ public class DatabaseManager {
 		return false;
 	}
 
-	public boolean removeUserFromPokerTable(String userEmail, String pokerTableName) {
+	public boolean removeUserFromPokerTable(String userEmail,
+			String pokerTableName) {
 		DbPokerTable pokerTable = getPokerTable(pokerTableName);
 		DbUser user = getUser(userEmail);
-		if(pokerTable != null && user != null) {
-			if(user.getPokerTable() != null && pokerTable.equals(user.getPokerTable())) {
+		if (pokerTable != null && user != null) {
+			if (user.getPokerTable() != null
+					&& pokerTable.equals(user.getPokerTable())) {
 				user.setPokerTable(null);
 				user.update();
 				return true;

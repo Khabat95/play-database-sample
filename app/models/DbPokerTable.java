@@ -34,14 +34,14 @@ public class DbPokerTable extends Model {
 	private TableLimit tableLimit;
 	@Column(nullable = false)
 	private Integer seatNumber;
-	@OneToMany(cascade = CascadeType.PERSIST, fetch=FetchType.LAZY, mappedBy="pokerTable")
+	@OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY, mappedBy = "pokerTable")
 	private List<DbUser> users;
 
 	public DbPokerTable() {
 	}
-	
-	public DbPokerTable(String name, TableType tableType, TableLimit tableLimit,
-			Integer seatNumber, List<DbUser> users) {
+
+	public DbPokerTable(String name, TableType tableType,
+			TableLimit tableLimit, Integer seatNumber, List<DbUser> users) {
 		this.name = name;
 		this.tableType = tableType;
 		this.tableLimit = tableLimit;
@@ -76,7 +76,7 @@ public class DbPokerTable extends Model {
 	public Integer getSeatNumber() {
 		return seatNumber;
 	}
-	
+
 	public void setSeatNumber(Integer seatNumber) {
 		this.seatNumber = seatNumber;
 	}
@@ -133,5 +133,5 @@ public class DbPokerTable extends Model {
 				+ ", tableLimit=" + tableLimit + ", seatNumber=" + seatNumber
 				+ "]";
 	}
-	
+
 }

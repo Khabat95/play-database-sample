@@ -11,12 +11,13 @@ public class DefaultTableService implements ITableService {
 
 	private Form<User> form = Form.form(User.class);
 	private Form<User> filledForm;
-	
+
 	private DatabaseManager dbManager = new DatabaseManager();
 
 	@Override
 	public PokerTable getTable(String name) {
-		return PokerTable.fromDbPokerTableWithUsers(dbManager.getPokerTable(name));
+		return PokerTable.fromDbPokerTableWithUsers(dbManager
+				.getPokerTable(name));
 	}
 
 	@Override
@@ -34,14 +35,15 @@ public class DefaultTableService implements ITableService {
 		filledForm = form.bindFromRequest();
 		if (!filledForm.hasErrors()) {
 			DbUser dbUser = dbManager.getUser(filledForm.get().getEmail());
-			if(dbUser == null) {
+			if (dbUser == null) {
 				filledForm.reject("This user doesn't exist");
 			} else {
 				DbPokerTable dbPokerTable = dbManager.getPokerTable(tableName);
-				if(dbPokerTable.getUsers().contains(dbUser)) {
+				if (dbPokerTable.getUsers().contains(dbUser)) {
 					filledForm.reject("This user is already on the table");
 				} else {
-					return dbManager.addUserToPokerTable(dbUser.getEmail(), dbPokerTable.getName());
+					return dbManager.addUserToPokerTable(dbUser.getEmail(),
+							dbPokerTable.getName());
 				}
 			}
 		}
