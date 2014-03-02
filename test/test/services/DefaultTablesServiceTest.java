@@ -5,8 +5,6 @@ import static org.mockito.Mockito.*;
 
 import java.util.List;
 
-import models.DBPokerTable;
-
 import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -15,6 +13,7 @@ import services.DefaultTablesService;
 import services.ITablesService;
 import test.AbstractTest;
 import db.DatabaseManager;
+import dto.PokerTable;
 
 public class DefaultTablesServiceTest extends AbstractTest {
 
@@ -30,7 +29,7 @@ public class DefaultTablesServiceTest extends AbstractTest {
 		// dbManager.getAllPokerTables() ?
 		// when(dbManager.getAllPokerTables()).thenReturn(new
 		// ArrayList<DBPokerTable>());
-		List<DBPokerTable> tableList = tablesService.getTableList();
+		List<PokerTable> tableList = tablesService.getTableList();
 		assertNotNull(tableList);
 		verify(dbManager).getAllPokerTables();
 		verify(dbManager, times(1)).getAllPokerTables();

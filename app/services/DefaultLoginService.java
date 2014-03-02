@@ -26,7 +26,6 @@ public class DefaultLoginService implements ILoginService {
 		filledForm = form.bindFromRequest();
 		if (!filledForm.hasErrors()
 				&& dbManager.authenticate(filledForm.get().toDBUser()) == null) {
-			System.out.println("3");
 			filledForm.reject("Invalid user or password");;
 		}
 		return !filledForm.hasErrors();

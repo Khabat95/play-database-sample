@@ -4,7 +4,6 @@ import java.util.List;
 
 import db.DatabaseManager;
 import dto.PokerTable;
-import models.DBPokerTable;
 import play.data.Form;
 
 public class DefaultTablesService implements ITablesService {
@@ -14,10 +13,9 @@ public class DefaultTablesService implements ITablesService {
 	
 	private DatabaseManager dbManager = new DatabaseManager();
 
-	// TODO return List<PokerTable> (use of FluentIterator.transform() ?
 	@Override
-	public List<DBPokerTable> getTableList() {
-		return dbManager.getAllPokerTables();
+	public List<PokerTable> getTableList() {
+		return PokerTable.fromDBPokerTableList(dbManager.getAllPokerTables());
 	}
 
 	@Override

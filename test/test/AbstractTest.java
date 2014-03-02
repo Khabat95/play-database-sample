@@ -21,8 +21,8 @@ public abstract class AbstractTest {
 	public void setUp() {
 		this.app = Helpers.fakeApplication(Helpers.inMemoryDatabase());
 		Helpers.start(this.app);
-		initMocks(this);
 		Ebean.save((List<?>) Yaml.load("test-data.yml"));
+		initMocks(this);
 	}
 
 	@After

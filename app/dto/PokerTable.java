@@ -1,5 +1,10 @@
 package dto;
 
+import java.util.List;
+
+import com.google.common.base.Function;
+import com.google.common.collect.FluentIterable;
+
 import models.DBPokerTable;
 import models.DBPokerTable.TableLimit;
 import models.DBPokerTable.TableType;
@@ -70,6 +75,17 @@ public class PokerTable {
 	
 	public static PokerTable fromDBPokerTable(DBPokerTable dbPokerTable) {
 		return new PokerTable(dbPokerTable.getName(), dbPokerTable.getTableType(), dbPokerTable.getTableLimit(), dbPokerTable.getSeatNumber());
+	}
+	
+	public static List<PokerTable> fromDBPokerTableList(List<DBPokerTable> list) {
+		Function<DBPokerTable, PokerTable> function = new Function<DBPokerTable, PokerTable>() {
+
+			@Override
+			public PokerTable apply(DBPokerTable dbPokerTable) {
+				return fromDBPokerTable(dbPokerTable);
+			}
+		};
+		return FluentIterable.from(list).transform(function).toList();
 	}
 
 	@Override
