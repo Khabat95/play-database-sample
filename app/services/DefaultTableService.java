@@ -41,7 +41,7 @@ public class DefaultTableService implements ITableService {
 				if(dbPokerTable.getUsers().contains(dbUser)) {
 					filledForm.reject("This user is already on the table");
 				} else {
-					return dbManager.addUserToPokerTable(dbUser, dbPokerTable);
+					return dbManager.addUserToPokerTable(dbUser.getEmail(), dbPokerTable.getName());
 				}
 			}
 		}
@@ -50,9 +50,7 @@ public class DefaultTableService implements ITableService {
 
 	@Override
 	public boolean removeUser(String tableName, String email) {
-		DbPokerTable dbPokerTable = dbManager.getPokerTable(tableName);
-		DbUser dbUser = dbManager.getUser(email);
-		return dbManager.removeUserFromPokerTable(dbUser, dbPokerTable);
+		return dbManager.removeUserFromPokerTable(email, tableName);
 	}
 
 }

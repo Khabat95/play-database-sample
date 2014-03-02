@@ -28,6 +28,12 @@ public class DbUser extends Model {
 		this.password = password;
 	}
 
+	public DbUser(String email, String password, DbPokerTable pokerTable) {
+		this.email = email;
+		this.password = password;
+		this.pokerTable = pokerTable;
+	}
+	
 	public String getEmail() {
 		return email;
 	}

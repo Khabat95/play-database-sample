@@ -20,7 +20,7 @@ public class DatabaseManager {
 	}
 
 	public DbUser createUser(DbUser user) {
-		if (userFinder.where().eq("email", user.getEmail()).findUnique() == null) {
+		if (getUser(user.getEmail()) == null) {
 			user.save();
 			return user;
 		}
@@ -36,8 +36,7 @@ public class DatabaseManager {
 	}
 
 	public DbPokerTable createPokerTable(DbPokerTable pokerTable) {
-		if (pokerTableFinder.where().eq("name", pokerTable.getName())
-				.findUnique() == null) {
+		if (getPokerTable(pokerTable.getName()) == null) {
 			pokerTable.save();
 			return pokerTable;
 		}
@@ -49,15 +48,15 @@ public class DatabaseManager {
 	}
 
 	public DbPokerTable getPokerTable(String name) {
-		return pokerTableFinder.byId(name);
+		return pokerTableFinder.where().eq("name", name).findUnique();
 	}
 
 	public int getPokerTableCount() {
 		return pokerTableFinder.findRowCount();
 	}
 
-	public boolean removePokerTable(String name) {
-		DbPokerTable pokerTable = pokerTableFinder.ref(name);
+	public boolean deletePokerTable(String name) {
+		DbPokerTable pokerTable = getPokerTable(name);
 		if(pokerTable != null) {
 			for(DbUser user : pokerTable.getUsers()) {
 				user.setPokerTable(null);
@@ -69,17 +68,26 @@ public class DatabaseManager {
 		return false;
 	}
 
-	public boolean addUserToPokerTable(DbUser user, DbPokerTable pokerTable) {
-		user.setPokerTable(pokerTable);
-		user.update();
-		return true;
-	}
-
-	public boolean removeUserFromPokerTable(DbUser user, DbPokerTable pokerTable) {
-		if(user.getPokerTable().equals(pokerTable)) {
-			user.setPokerTable(null);
+	public boolean addUserToPokerTable(String userEmail, String pokerTableName) {
+		DbPokerTable pokerTable = getPokerTable(pokerTableName);
+		DbUser user = getUser(userEmail);
+		if(pokerTable != null && user != null) {
+			user.setPokerTable(pokerTable);
 			user.update();
 			return true;
+		}
+		return false;
+	}
+
+	public boolean removeUserFromPokerTable(String userEmail, String pokerTableName) {
+		DbPokerTable pokerTable = getPokerTable(pokerTableName);
+		DbUser user = getUser(userEmail);
+		if(pokerTable != null && user != null) {
+			if(user.getPokerTable() != null && pokerTable.equals(user.getPokerTable())) {
+				user.setPokerTable(null);
+				user.update();
+				return true;
+			}
 		}
 		return false;
 	}

@@ -1,25 +1,25 @@
 
-# DBUser
+# DbUser
 
-- !!models.DBUser
+- &sdubois87 !!models.DbUser
     email:      sdubois87@gmail.com
     password:   sdubois87
 
-# DBPokerTable
+# DbPokerTable
 
-- !!models.DBPokerTable
+- &sydney !!models.DbPokerTable
     name:       Sydney
     tableType:  HOLDEM
     tableLimit: NO_LIMIT
     seatNumber: 10
 
-- !!models.DBPokerTable
+- &paris !!models.DbPokerTable
     name:       Paris
     tableType:  OMAHA
     tableLimit: POT_LIMIT
     seatNumber: 9
 
-- !!models.DBPokerTable
+- &warszawa !!models.DbPokerTable
     name:       Warszawa
     tableType:  OMAHA
     tableLimit: LIMIT

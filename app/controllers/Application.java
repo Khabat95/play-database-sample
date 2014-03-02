@@ -11,9 +11,6 @@ import com.google.inject.Inject;
 import views.html.login;
 import views.html.createAccount;
 
-// TODO create a com.khabat... package
-// TODO try @import in scala.html
-
 public class Application extends Controller {
 
 	@Inject
