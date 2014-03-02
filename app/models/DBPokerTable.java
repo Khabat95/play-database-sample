@@ -1,11 +1,16 @@
 package models;
 
+import java.util.Collections;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import play.db.ebean.Model;
-
-//TODO create a list of users
 
 @Entity
 public class DBPokerTable extends Model {
@@ -21,20 +26,27 @@ public class DBPokerTable extends Model {
 	}
 
 	@Id
+	@Column(nullable = false)
 	private String name;
+	@Column(nullable = false)
 	private TableType tableType;
+	@Column(nullable = false)
 	private TableLimit tableLimit;
+	@Column(nullable = false)
 	private Integer seatNumber;
+	@OneToMany(cascade = CascadeType.PERSIST, fetch=FetchType.LAZY, mappedBy="pokerTable")
+	private List<DBUser> users;
 
 	public DBPokerTable() {
 	}
 	
 	public DBPokerTable(String name, TableType tableType, TableLimit tableLimit,
-			Integer seatNumber) {
+			Integer seatNumber, List<DBUser> users) {
 		this.name = name;
 		this.tableType = tableType;
 		this.tableLimit = tableLimit;
 		this.seatNumber = seatNumber;
+		this.users = users;
 	}
 
 	public String getName() {
@@ -67,6 +79,14 @@ public class DBPokerTable extends Model {
 	
 	public void setSeatNumber(Integer seatNumber) {
 		this.seatNumber = seatNumber;
+	}
+
+	public List<DBUser> getUsers() {
+		return Collections.unmodifiableList(users);
+	}
+
+	public void setUsers(List<DBUser> users) {
+		this.users = users;
 	}
 
 	@Override

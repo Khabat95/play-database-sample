@@ -24,7 +24,7 @@ public class Tables extends Controller {
 	}
 
 	public Result openTable(String name) {
-		return ok(table.render(tableService.getTable(name)));
+		return ok(table.render(tableService.getTable(name), tableService.getForm()));
 	}
 
 	public Result newTable() {
@@ -41,4 +41,16 @@ public class Tables extends Controller {
 		return redirect(routes.Tables.index());
 	}
 
+	public Result addUser(String tableName) {
+		if(tableService.addUser(tableName)) {
+			return redirect(routes.Tables.openTable(tableName));
+		} else {
+			return badRequest(table.render(tableService.getTable(tableName), tableService.getFilledForm()));
+		}
+	}
+	
+	public Result removeUser(String tableName, String email) {
+		tableService.removeUser(tableName, email);
+		return redirect(routes.Tables.openTable(tableName));
+	}
 }

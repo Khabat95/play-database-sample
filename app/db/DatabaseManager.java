@@ -28,28 +28,24 @@ public class DatabaseManager {
 	}
 
 	public DBUser getUser(String email) {
-		return userFinder.where().eq("email", "sdubois86@gmail.com")
-				.findUnique();
+		return userFinder.where().eq("email", email).findUnique();
 	}
 
 	public int getUserCount() {
 		return userFinder.findRowCount();
 	}
 
-	public List<DBPokerTable> getAllPokerTables() {
-		return pokerTableFinder.all();
-	}
-
 	public DBPokerTable createPokerTable(DBPokerTable pokerTable) {
-		if (pokerTableFinder.where().eq("name", pokerTable.getName()).findUnique() == null) {
+		if (pokerTableFinder.where().eq("name", pokerTable.getName())
+				.findUnique() == null) {
 			pokerTable.save();
 			return pokerTable;
 		}
 		return null;
 	}
 
-	public void removePokerTable(String name) {
-		pokerTableFinder.ref(name).delete();
+	public List<DBPokerTable> getAllPokerTables() {
+		return pokerTableFinder.all();
 	}
 
 	public DBPokerTable getPokerTable(String name) {
@@ -58,6 +54,34 @@ public class DatabaseManager {
 
 	public int getPokerTableCount() {
 		return pokerTableFinder.findRowCount();
+	}
+
+	public boolean removePokerTable(String name) {
+		DBPokerTable pokerTable = pokerTableFinder.ref(name);
+		if(pokerTable != null) {
+			for(DBUser user : pokerTable.getUsers()) {
+				user.setPokerTable(null);
+				user.update();
+			}
+			pokerTable.delete();
+			return true;
+		}
+		return false;
+	}
+
+	public boolean addUserToPokerTable(DBUser user, DBPokerTable pokerTable) {
+		user.setPokerTable(pokerTable);
+		user.update();
+		return true;
+	}
+
+	public boolean removeUserFromPokerTable(DBUser user, DBPokerTable pokerTable) {
+		if(user.getPokerTable().equals(pokerTable)) {
+			user.setPokerTable(null);
+			user.update();
+			return true;
+		}
+		return false;
 	}
 
 }

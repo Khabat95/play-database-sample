@@ -39,8 +39,8 @@ public class DefaultTablesService implements ITablesService {
 	}
 
 	@Override
-	public void deleteTable(String name) {
-		dbManager.removePokerTable(name);
+	public boolean deleteTable(String name) {
+		return dbManager.removePokerTable(name);
 	}
 
 }

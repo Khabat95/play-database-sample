@@ -13,7 +13,6 @@ import views.html.createAccount;
 
 // TODO create a com.khabat... package
 // TODO try @import in scala.html
-// TODO use DTO objects in scala.html instead of DB objects
 
 public class Application extends Controller {
 

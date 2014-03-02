@@ -29,21 +29,12 @@ public class DefaultLoginServiceTest extends AbstractTest {
 	ILoginService loginService = new DefaultLoginService();
 
 	@Test
-	public void tryEmptyAuthenticate() {
-		Login login = new Login();
-		DBUser user = new DBUser();
-		when(form.bindFromRequest()).thenReturn(Form.form(Login.class).fill(login));
-		assertFalse(loginService.authenticate());
-		verify(dbManager).authenticate(user);
-		verify(dbManager, times(1)).authenticate(user);
-	}
-	
-	@Test
 	public void tryGoodAuthenticate() {
 		Login login = new Login("sdubois87@gmail.com", "sdubois87");
 		DBUser user = new DBUser("sdubois87@gmail.com", "sdubois87");
 		when(form.bindFromRequest()).thenReturn(Form.form(Login.class).fill(login));
 		assertTrue(loginService.authenticate());
+		// TODO tests on filledForm
 		verify(dbManager).authenticate(user);
 		verify(dbManager, times(1)).authenticate(user);
 	}
@@ -54,6 +45,7 @@ public class DefaultLoginServiceTest extends AbstractTest {
 		DBUser user = new DBUser("sdubois87@gmail.com", "sdubois");
 		when(form.bindFromRequest()).thenReturn(Form.form(Login.class).fill(login));
 		assertFalse(loginService.authenticate());
+		// TODO tests on filledForm
 		verify(dbManager).authenticate(user);
 		verify(dbManager, times(1)).authenticate(user);
 	}

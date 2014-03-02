@@ -12,6 +12,9 @@ GET		/tables						@controllers.Tables.index()
 POST	/tables						@controllers.Tables.newTable()
 POST	/tables/:name/delete		@controllers.Tables.deleteTable(name: String)
 GET		/table						@controllers.Tables.openTable(name: String)
+POST	/table						@controllers.Tables.addUser(tableName: String)
+#POST	/table/:tableName/remove:email/remove			@controllers.Tables.removeUser(tableName: String, email: String)
+POST	/table/:tableName/remove:email/remove			@controllers.Tables.removeUser(tableName: String, email: String)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

@@ -1,7 +1,9 @@
 package models;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 import play.db.ebean.Model;
 
@@ -11,8 +13,12 @@ public class DBUser extends Model {
 	private static final long serialVersionUID = -3426136236097410494L;
 
 	@Id
+	@Column(nullable = false)
 	private String email;
+	@Column(nullable = false)
 	private String password;
+	@ManyToOne
+	private DBPokerTable pokerTable;
 
 	public DBUser() {
 	}
@@ -36,6 +42,14 @@ public class DBUser extends Model {
 	
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	public DBPokerTable getPokerTable() {
+		return pokerTable;
+	}
+	
+	public void setPokerTable(DBPokerTable pokerTable) {
+		this.pokerTable = pokerTable;
 	}
 	
 	@Override

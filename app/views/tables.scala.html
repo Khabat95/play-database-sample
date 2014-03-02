@@ -18,8 +18,9 @@
 				<td>@table.getTableType()</td>
 				<td>@table.getTableLimit()</td>
 				<td>@table.getSeatNumber()</td>
-				<td>@form(routes.Tables.deleteTable(table.getName())) { <input
-					type="submit" value="Delete"> }
+				<td>@form(routes.Tables.deleteTable(table.getName())) {
+						<input type="submit" value="Delete">
+					}
 				</td>
 			</tr>
 		}

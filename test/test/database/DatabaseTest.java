@@ -1,6 +1,9 @@
 package test.database;
 
 import static org.junit.Assert.*;
+
+import java.util.ArrayList;
+
 import models.DBPokerTable;
 import models.DBPokerTable.TableLimit;
 import models.DBPokerTable.TableType;
@@ -36,7 +39,7 @@ public class DatabaseTest extends AbstractTest {
 	@Test
 	public void createAndRetrieveDBPokerTable() {
 		dbManager.createPokerTable(new DBPokerTable("Las Vegas",
-				TableType.HOLDEM, TableLimit.NO_LIMIT, 9));
+				TableType.HOLDEM, TableLimit.NO_LIMIT, 9, new ArrayList<DBUser>()));
 		DBPokerTable table = dbManager.getPokerTable("Las Vegas");
 		assertNotNull(table);
 		assertEquals(TableType.HOLDEM, table.getTableType());

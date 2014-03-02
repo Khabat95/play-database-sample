@@ -10,5 +10,5 @@ public interface ITablesService {
 	Form<PokerTable> getForm();
 	Form<PokerTable> getFilledForm();
 	boolean newTable();
-	void deleteTable(String name);
+	boolean deleteTable(String name);
 }

@@ -1,4 +1,6 @@
-@(table: dto.PokerTable)
+@(table: dto.PokerTable, userForm: Form[dto.User])
+
+@import helper._
 
 @main("Poker Game - Table " + table.getName()) {
 
@@ -8,6 +10,33 @@
 		<li>@table.getTableType().toString()</li>
 		<li>@table.getTableLimit().toString()</li>
 		<li>@table.getSeatNumber() seats</li>
+		@if(table.getUsers().size() != 0) {
+			<li>User(s)
+				<ul>
+					@for(user <- table.getUsers()) {
+						<li>
+							@user.getEmail()
+							@form(routes.Tables.removeUser(table.getName(), user.getEmail())) {
+								<input type="submit" value="Remove">
+							}
+						</li>
+					}
+				</ul>
+			</li>
+		} else {
+			<li>No users</li>
+		}
+		</ul>
 	</ul>
 
+	<h2>Add a user</h2>
+	
+	@if(userForm.hasGlobalErrors) {
+		<p class="error">@userForm.globalError.message</p>
+	}
+
+	@form(routes.Tables.addUser(table.getName())) {
+		@inputText(userForm("email"))
+		<input type="submit" value="Add User">
+	}
 }
