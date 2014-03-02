@@ -30,7 +30,7 @@ public class DefaultLoginServiceTest extends AbstractTest {
 	@Test
 	public void authenticate() {
 		when(form.bindFromRequest()).thenReturn(Form.form(Login.class).fill(new Login()));
-		loginService.authenticate();
+		assertFalse(loginService.authenticate());
 		verify(dbManager).authenticate(new DBUser());
 		verify(dbManager, times(1)).authenticate(new DBUser());
 	}

@@ -1,42 +1,19 @@
-package test.models;
-
-import java.util.List;
+package test.database;
 
 import static org.junit.Assert.*;
-
 import models.DBPokerTable;
 import models.DBPokerTable.TableLimit;
 import models.DBPokerTable.TableType;
 import models.DBUser;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
-import com.avaje.ebean.Ebean;
-
 import db.DatabaseManager;
-import play.libs.Yaml;
-import play.test.FakeApplication;
-import play.test.Helpers;
+import test.AbstractTest;
 
-public class ModelsTest {
-
-	private FakeApplication app;
+public class DatabaseTest extends AbstractTest {
 
 	private DatabaseManager dbManager = new DatabaseManager();
-
-	@Before
-	public void setUp() {
-		this.app = Helpers.fakeApplication(Helpers.inMemoryDatabase());
-		Helpers.start(this.app);
-		Ebean.save((List<?>) Yaml.load("test-data.yml"));
-	}
-
-	@After
-	public void tearDown() {
-		Helpers.stop(this.app);
-	}
 
 	@Test
 	public void createAndRetrieveDBUser() {
