@@ -9,11 +9,11 @@ import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
+import db.DatabaseManager;
+import dto.PokerTable;
 import services.DefaultTablesService;
 import services.ITablesService;
 import test.AbstractTest;
-import db.DatabaseManager;
-import dto.PokerTable;
 
 public class DefaultTablesServiceTest extends AbstractTest {
 

@@ -1,6 +1,6 @@
 package dto;
 
-import models.DBUser;
+import models.DbUser;
 
 public class Login {
 
@@ -38,11 +38,11 @@ public class Login {
 		return null;
 	}
 
-	public DBUser toDBUser() {
-		return new DBUser(email, password);
+	public DbUser toDBUser() {
+		return new DbUser(email, password);
 	}
 	
-	public static Login fromDBUser(DBUser dbUser) {
+	public static Login fromDBUser(DbUser dbUser) {
 		return new Login(dbUser.getEmail(), dbUser.getPassword());
 	}
 

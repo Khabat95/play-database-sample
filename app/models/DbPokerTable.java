@@ -13,7 +13,7 @@ import javax.persistence.OneToMany;
 import play.db.ebean.Model;
 
 @Entity
-public class DBPokerTable extends Model {
+public class DbPokerTable extends Model {
 
 	private static final long serialVersionUID = -4573530942569841844L;
 
@@ -35,13 +35,13 @@ public class DBPokerTable extends Model {
 	@Column(nullable = false)
 	private Integer seatNumber;
 	@OneToMany(cascade = CascadeType.PERSIST, fetch=FetchType.LAZY, mappedBy="pokerTable")
-	private List<DBUser> users;
+	private List<DbUser> users;
 
-	public DBPokerTable() {
+	public DbPokerTable() {
 	}
 	
-	public DBPokerTable(String name, TableType tableType, TableLimit tableLimit,
-			Integer seatNumber, List<DBUser> users) {
+	public DbPokerTable(String name, TableType tableType, TableLimit tableLimit,
+			Integer seatNumber, List<DbUser> users) {
 		this.name = name;
 		this.tableType = tableType;
 		this.tableLimit = tableLimit;
@@ -81,11 +81,11 @@ public class DBPokerTable extends Model {
 		this.seatNumber = seatNumber;
 	}
 
-	public List<DBUser> getUsers() {
+	public List<DbUser> getUsers() {
 		return Collections.unmodifiableList(users);
 	}
 
-	public void setUsers(List<DBUser> users) {
+	public void setUsers(List<DbUser> users) {
 		this.users = users;
 	}
 
@@ -109,7 +109,7 @@ public class DBPokerTable extends Model {
 			return true;
 		if (getClass() != obj.getClass())
 			return false;
-		DBPokerTable other = (DBPokerTable) obj;
+		DbPokerTable other = (DbPokerTable) obj;
 		if (name == null) {
 			if (other.name != null)
 				return false;

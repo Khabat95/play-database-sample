@@ -4,10 +4,10 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 
-import models.DBPokerTable;
-import models.DBPokerTable.TableLimit;
-import models.DBPokerTable.TableType;
-import models.DBUser;
+import models.DbPokerTable;
+import models.DbUser;
+import models.DbPokerTable.TableLimit;
+import models.DbPokerTable.TableType;
 
 import org.junit.Test;
 
@@ -20,27 +20,27 @@ public class DatabaseTest extends AbstractTest {
 
 	@Test
 	public void createAndRetrieveDBUser() {
-		dbManager.createUser(new DBUser("sdubois86@gmail.com", "sdubois86"));
-		DBUser sdubois = dbManager.getUser("sdubois86@gmail.com");
+		dbManager.createUser(new DbUser("sdubois86@gmail.com", "sdubois86"));
+		DbUser sdubois = dbManager.getUser("sdubois86@gmail.com");
 		assertNotNull(sdubois);
 		assertEquals("sdubois86", sdubois.getPassword());
 	}
 
 	@Test
 	public void tryAuthenticate() {
-		assertNotNull(dbManager.authenticate(new DBUser("sdubois87@gmail.com",
+		assertNotNull(dbManager.authenticate(new DbUser("sdubois87@gmail.com",
 				"sdubois87")));
-		assertNull(dbManager.authenticate(new DBUser("sdubois87@gmail.com",
+		assertNull(dbManager.authenticate(new DbUser("sdubois87@gmail.com",
 				"sdubois")));
-		assertNull(dbManager.authenticate(new DBUser("sdubois87@msn.com",
+		assertNull(dbManager.authenticate(new DbUser("sdubois87@msn.com",
 				"sdubois87")));
 	}
 
 	@Test
 	public void createAndRetrieveDBPokerTable() {
-		dbManager.createPokerTable(new DBPokerTable("Las Vegas",
-				TableType.HOLDEM, TableLimit.NO_LIMIT, 9, new ArrayList<DBUser>()));
-		DBPokerTable table = dbManager.getPokerTable("Las Vegas");
+		dbManager.createPokerTable(new DbPokerTable("Las Vegas",
+				TableType.HOLDEM, TableLimit.NO_LIMIT, 9, new ArrayList<DbUser>()));
+		DbPokerTable table = dbManager.getPokerTable("Las Vegas");
 		assertNotNull(table);
 		assertEquals(TableType.HOLDEM, table.getTableType());
 		assertEquals(TableLimit.NO_LIMIT, table.getTableLimit());
@@ -56,16 +56,16 @@ public class DatabaseTest extends AbstractTest {
 
 	@Test
 	public void globalTest() {
-		DBPokerTable pokerTabe;
+		DbPokerTable pokerTabe;
 
 		assertEquals(1, dbManager.getUserCount());
 		assertEquals(3, dbManager.getPokerTableCount());
 
-		assertNotNull(dbManager.authenticate(new DBUser("sdubois87@gmail.com",
+		assertNotNull(dbManager.authenticate(new DbUser("sdubois87@gmail.com",
 				"sdubois87")));
-		assertNull(dbManager.authenticate(new DBUser("sdubois87@gmail.com",
+		assertNull(dbManager.authenticate(new DbUser("sdubois87@gmail.com",
 				"sdubois")));
-		assertNull(dbManager.authenticate(new DBUser("sdubois87@msn.com",
+		assertNull(dbManager.authenticate(new DbUser("sdubois87@msn.com",
 				"sdubois87")));
 
 		assertEquals(3, dbManager.getAllPokerTables().size());

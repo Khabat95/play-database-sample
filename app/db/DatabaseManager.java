@@ -2,24 +2,24 @@ package db;
 
 import java.util.List;
 
-import models.DBPokerTable;
-import models.DBUser;
+import models.DbPokerTable;
+import models.DbUser;
 import play.db.ebean.Model.Finder;
 
 public class DatabaseManager {
 
-	private Finder<String, DBUser> userFinder = new Finder<String, DBUser>(
-			String.class, DBUser.class);
+	private Finder<String, DbUser> userFinder = new Finder<String, DbUser>(
+			String.class, DbUser.class);
 
-	private Finder<String, DBPokerTable> pokerTableFinder = new Finder<String, DBPokerTable>(
-			String.class, DBPokerTable.class);
+	private Finder<String, DbPokerTable> pokerTableFinder = new Finder<String, DbPokerTable>(
+			String.class, DbPokerTable.class);
 
-	public DBUser authenticate(DBUser user) {
+	public DbUser authenticate(DbUser user) {
 		return userFinder.where().eq("email", user.getEmail())
 				.eq("password", user.getPassword()).findUnique();
 	}
 
-	public DBUser createUser(DBUser user) {
+	public DbUser createUser(DbUser user) {
 		if (userFinder.where().eq("email", user.getEmail()).findUnique() == null) {
 			user.save();
 			return user;
@@ -27,7 +27,7 @@ public class DatabaseManager {
 		return null;
 	}
 
-	public DBUser getUser(String email) {
+	public DbUser getUser(String email) {
 		return userFinder.where().eq("email", email).findUnique();
 	}
 
@@ -35,7 +35,7 @@ public class DatabaseManager {
 		return userFinder.findRowCount();
 	}
 
-	public DBPokerTable createPokerTable(DBPokerTable pokerTable) {
+	public DbPokerTable createPokerTable(DbPokerTable pokerTable) {
 		if (pokerTableFinder.where().eq("name", pokerTable.getName())
 				.findUnique() == null) {
 			pokerTable.save();
@@ -44,11 +44,11 @@ public class DatabaseManager {
 		return null;
 	}
 
-	public List<DBPokerTable> getAllPokerTables() {
+	public List<DbPokerTable> getAllPokerTables() {
 		return pokerTableFinder.all();
 	}
 
-	public DBPokerTable getPokerTable(String name) {
+	public DbPokerTable getPokerTable(String name) {
 		return pokerTableFinder.byId(name);
 	}
 
@@ -57,9 +57,9 @@ public class DatabaseManager {
 	}
 
 	public boolean removePokerTable(String name) {
-		DBPokerTable pokerTable = pokerTableFinder.ref(name);
+		DbPokerTable pokerTable = pokerTableFinder.ref(name);
 		if(pokerTable != null) {
-			for(DBUser user : pokerTable.getUsers()) {
+			for(DbUser user : pokerTable.getUsers()) {
 				user.setPokerTable(null);
 				user.update();
 			}
@@ -69,13 +69,13 @@ public class DatabaseManager {
 		return false;
 	}
 
-	public boolean addUserToPokerTable(DBUser user, DBPokerTable pokerTable) {
+	public boolean addUserToPokerTable(DbUser user, DbPokerTable pokerTable) {
 		user.setPokerTable(pokerTable);
 		user.update();
 		return true;
 	}
 
-	public boolean removeUserFromPokerTable(DBUser user, DBPokerTable pokerTable) {
+	public boolean removeUserFromPokerTable(DbUser user, DbPokerTable pokerTable) {
 		if(user.getPokerTable().equals(pokerTable)) {
 			user.setPokerTable(null);
 			user.update();

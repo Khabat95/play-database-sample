@@ -2,10 +2,10 @@ package dto;
 
 import java.util.List;
 
+import models.DbUser;
+
 import com.google.common.base.Function;
 import com.google.common.collect.FluentIterable;
-
-import models.DBUser;
 
 public class User {
 
@@ -33,34 +33,34 @@ public class User {
 		return null;
 	}
 
-	public DBUser toDBUser() {
-		return new DBUser(email, "");
+	public DbUser toDBUser() {
+		return new DbUser(email, "");
 	}
 	
-	public static User fromDBUser(DBUser dbUser) {
+	public static User fromDBUser(DbUser dbUser) {
 		return new User(dbUser.getEmail());
 	}
 	
-	private static Function<DBUser, User> dbToDTOTransformFunction = new Function<DBUser, User>() {
+	private static Function<DbUser, User> dbToDtoTransformFunction = new Function<DbUser, User>() {
 		@Override
-		public User apply(DBUser dbUser) {
+		public User apply(DbUser dbUser) {
 			return fromDBUser(dbUser);
 		}
 	};
 	
-	private static Function<User, DBUser> dtoToDBTransformFunction = new Function<User, DBUser>() {
+	private static Function<User, DbUser> dtoToDbTransformFunction = new Function<User, DbUser>() {
 		@Override
-		public DBUser apply(User user) {
+		public DbUser apply(User user) {
 			return user.toDBUser();
 		}
 	};
 	
-	public static List<User> fromDBUserList(List<DBUser> list) {
-		return FluentIterable.from(list).transform(dbToDTOTransformFunction).toList();
+	public static List<User> fromDBUserList(List<DbUser> list) {
+		return FluentIterable.from(list).transform(dbToDtoTransformFunction).toList();
 	}
 
-	public static List<DBUser> toDBUserList(List<User> list) {
-		return FluentIterable.from(list).transform(dtoToDBTransformFunction).toList();
+	public static List<DbUser> toDBUserList(List<User> list) {
+		return FluentIterable.from(list).transform(dtoToDbTransformFunction).toList();
 	}
 
 	@Override

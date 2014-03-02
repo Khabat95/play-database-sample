@@ -1,11 +1,11 @@
 package services;
 
-import models.DBPokerTable;
-import models.DBUser;
-import play.data.Form;
+import models.DbPokerTable;
+import models.DbUser;
 import db.DatabaseManager;
 import dto.PokerTable;
 import dto.User;
+import play.data.Form;
 
 public class DefaultTableService implements ITableService {
 
@@ -16,7 +16,7 @@ public class DefaultTableService implements ITableService {
 
 	@Override
 	public PokerTable getTable(String name) {
-		return PokerTable.fromDBPokerTable(dbManager.getPokerTable(name));
+		return PokerTable.fromDBPokerTableWithUsers(dbManager.getPokerTable(name));
 	}
 
 	@Override
@@ -33,11 +33,11 @@ public class DefaultTableService implements ITableService {
 	public boolean addUser(String tableName) {
 		filledForm = form.bindFromRequest();
 		if (!filledForm.hasErrors()) {
-			DBUser dbUser = dbManager.getUser(filledForm.get().getEmail());
+			DbUser dbUser = dbManager.getUser(filledForm.get().getEmail());
 			if(dbUser == null) {
 				filledForm.reject("This user doesn't exist");
 			} else {
-				DBPokerTable dbPokerTable = dbManager.getPokerTable(tableName);
+				DbPokerTable dbPokerTable = dbManager.getPokerTable(tableName);
 				if(dbPokerTable.getUsers().contains(dbUser)) {
 					filledForm.reject("This user is already on the table");
 				} else {
@@ -50,8 +50,8 @@ public class DefaultTableService implements ITableService {
 
 	@Override
 	public boolean removeUser(String tableName, String email) {
-		DBPokerTable dbPokerTable = dbManager.getPokerTable(tableName);
-		DBUser dbUser = dbManager.getUser(email);
+		DbPokerTable dbPokerTable = dbManager.getPokerTable(tableName);
+		DbUser dbUser = dbManager.getUser(email);
 		return dbManager.removeUserFromPokerTable(dbUser, dbPokerTable);
 	}
 

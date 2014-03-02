@@ -3,11 +3,11 @@ package controllers;
 import play.mvc.Controller;
 import play.mvc.Result;
 import play.mvc.Security;
+import services.ICreateAccountService;
+import services.ILoginService;
 
 import com.google.inject.Inject;
 
-import services.ICreateAccountService;
-import services.ILoginService;
 import views.html.login;
 import views.html.createAccount;
 

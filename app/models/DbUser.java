@@ -8,7 +8,7 @@ import javax.persistence.ManyToOne;
 import play.db.ebean.Model;
 
 @Entity
-public class DBUser extends Model {
+public class DbUser extends Model {
 
 	private static final long serialVersionUID = -3426136236097410494L;
 
@@ -18,12 +18,12 @@ public class DBUser extends Model {
 	@Column(nullable = false)
 	private String password;
 	@ManyToOne
-	private DBPokerTable pokerTable;
+	private DbPokerTable pokerTable;
 
-	public DBUser() {
+	public DbUser() {
 	}
 	
-	public DBUser(String email, String password) {
+	public DbUser(String email, String password) {
 		this.email = email;
 		this.password = password;
 	}
@@ -44,11 +44,11 @@ public class DBUser extends Model {
 		this.password = password;
 	}
 	
-	public DBPokerTable getPokerTable() {
+	public DbPokerTable getPokerTable() {
 		return pokerTable;
 	}
 	
-	public void setPokerTable(DBPokerTable pokerTable) {
+	public void setPokerTable(DbPokerTable pokerTable) {
 		this.pokerTable = pokerTable;
 	}
 	
@@ -68,7 +68,7 @@ public class DBUser extends Model {
 			return true;
 		if (getClass() != obj.getClass())
 			return false;
-		DBUser other = (DBUser) obj;
+		DbUser other = (DbUser) obj;
 		if (email == null) {
 			if (other.email != null)
 				return false;

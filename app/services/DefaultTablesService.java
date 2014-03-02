@@ -15,7 +15,7 @@ public class DefaultTablesService implements ITablesService {
 
 	@Override
 	public List<PokerTable> getTableList() {
-		return PokerTable.fromDBPokerTableList(dbManager.getAllPokerTables());
+		return PokerTable.fromDBPokerTableListWithoutUsers(dbManager.getAllPokerTables());
 	}
 
 	@Override

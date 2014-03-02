@@ -2,18 +2,18 @@ package test.services;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
-import models.DBUser;
+import models.DbUser;
 
 import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Spy;
 
-import play.data.Form;
 import db.DatabaseManager;
 import dto.Account;
-import services.ICreateAccountService;
+import play.data.Form;
 import services.DefaultCreateAccountService;
+import services.ICreateAccountService;
 import test.AbstractTest;
 
 public class DefaultCreateAccountServiceTest extends AbstractTest {
@@ -31,7 +31,7 @@ public class DefaultCreateAccountServiceTest extends AbstractTest {
 	@Test
 	public void tryGoodSubmitAccount() {
 		Account account = new Account("sdubois86@gmail.com", "sdubois86@gmail.com", "sdubois86", "sdubois86");
-		DBUser user = new DBUser("sdubois86@gmail.com", "sdubois86");
+		DbUser user = new DbUser("sdubois86@gmail.com", "sdubois86");
 		when(form.bindFromRequest()).thenReturn(Form.form(Account.class).fill(account));
 		assertTrue(createAccountService.submitAccount());
 		// TODO tests on filledForm
@@ -42,7 +42,7 @@ public class DefaultCreateAccountServiceTest extends AbstractTest {
 	@Test
 	public void tryWrongSubmitAccount() {
 		Account account = new Account("sdubois87@gmail.com", "sdubois87@gmail.com", "sdubois87", "sdubois87");
-		DBUser user = new DBUser("sdubois87@gmail.com", "sdubois87");
+		DbUser user = new DbUser("sdubois87@gmail.com", "sdubois87");
 		when(form.bindFromRequest()).thenReturn(Form.form(Account.class).fill(account));
 		assertFalse(createAccountService.submitAccount());
 		// TODO tests on filledForm
