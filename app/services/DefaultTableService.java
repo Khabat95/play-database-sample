@@ -43,7 +43,7 @@ public class DefaultTableService implements ITableService {
 			} else {
 				DbPokerTable dbPokerTable = dbManager.getPokerTable(tableName);
 				if (dbPokerTable == null) {
-					filledForm.reject("This table doesn't exist");
+					return false;
 				} else {
 					if (dbPokerTable.getUsers().contains(dbUser)) {
 						filledForm.reject("This user is already on the table");
