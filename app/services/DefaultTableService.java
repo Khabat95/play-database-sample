@@ -16,8 +16,11 @@ public class DefaultTableService implements ITableService {
 
 	@Override
 	public PokerTable getTable(String name) {
-		return PokerTable.fromDbPokerTableWithUsers(dbManager
-				.getPokerTable(name));
+		DbPokerTable pokerTbale = dbManager.getPokerTable(name);
+		if (pokerTbale != null) {
+			return PokerTable.fromDbPokerTableWithUsers(pokerTbale);
+		}
+		return null;
 	}
 
 	@Override
@@ -39,11 +42,15 @@ public class DefaultTableService implements ITableService {
 				filledForm.reject("This user doesn't exist");
 			} else {
 				DbPokerTable dbPokerTable = dbManager.getPokerTable(tableName);
-				if (dbPokerTable.getUsers().contains(dbUser)) {
-					filledForm.reject("This user is already on the table");
+				if (dbPokerTable == null) {
+					filledForm.reject("This table doesn't exist");
 				} else {
-					return dbManager.addUserToPokerTable(dbUser.getEmail(),
-							dbPokerTable.getName());
+					if (dbPokerTable.getUsers().contains(dbUser)) {
+						filledForm.reject("This user is already on the table");
+					} else {
+						return dbManager.addUserToPokerTable(dbUser.getEmail(),
+								dbPokerTable.getName());
+					}
 				}
 			}
 		}

@@ -29,8 +29,13 @@ public class DefaultTableServiceTest extends AbstractTest {
 
 	@Test
 	public void tryGetTable() {
+		// Existent table
 		assertNotNull(tableService.getTable("Sydney"));
 		verify(dbManager).getPokerTable("Sydney");
+		// Inexistent table
+		reset(dbManager);
+		assertNull(tableService.getTable("Las Vegas"));
+		verify(dbManager).getPokerTable("Las Vegas");
 	}
 
 	@Test
@@ -63,6 +68,16 @@ public class DefaultTableServiceTest extends AbstractTest {
 		verify(dbManager, times(0)).getPokerTable("Sydney");
 		verify(dbManager, times(0)).addUserToPokerTable("sdubois86@gmail.com",
 				"Sydney");
+		// Inexistent table
+		reset(dbManager);
+		user = new User("sdubois87@gmail.com");
+		when(form.bindFromRequest()).thenReturn(
+				Form.form(User.class).fill(user));
+		assertFalse(tableService.addUser("Las Vegas"));
+		verify(dbManager).getUser("sdubois87@gmail.com");
+		verify(dbManager).getPokerTable("Las Vegas");
+		verify(dbManager, times(0)).addUserToPokerTable("sdubois87@gmail.com",
+				"Las Vegas");
 	}
 
 	@Test

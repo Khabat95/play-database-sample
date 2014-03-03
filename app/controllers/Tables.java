@@ -2,6 +2,7 @@ package controllers;
 
 import com.google.inject.Inject;
 
+import dto.PokerTable;
 import play.mvc.Controller;
 import play.mvc.Result;
 import play.mvc.Security;
@@ -25,8 +26,12 @@ public class Tables extends Controller {
 	}
 
 	public Result openTable(String name) {
-		return ok(table.render(tableService.getTable(name),
-				tableService.getForm()));
+		PokerTable pokerTable = tableService.getTable(name);
+		if (pokerTable != null)
+			return ok(table.render(pokerTable, tableService.getForm()));
+		else
+			return notFound("<h1>Table " + name + " not found</h1>").as(
+					"text/html");
 	}
 
 	public Result newTable() {
@@ -47,8 +52,13 @@ public class Tables extends Controller {
 		if (tableService.addUser(tableName)) {
 			return redirect(routes.Tables.openTable(tableName));
 		} else {
-			return badRequest(table.render(tableService.getTable(tableName),
-					tableService.getFilledForm()));
+			PokerTable pokerTable = tableService.getTable(tableName);
+			if (pokerTable != null)
+				return badRequest(table.render(pokerTable,
+						tableService.getFilledForm()));
+			else
+				return notFound("<h1>Table " + tableName + " not found</h1>")
+						.as("text/html");
 		}
 	}
 
