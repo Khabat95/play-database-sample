@@ -28,8 +28,8 @@ public class DefaultTablesServiceTest extends AbstractTest {
 
 	@Mock
 	Form<PokerTable> form;
-	@Mock
-	Form<PokerTable> filledForm;
+	@Spy
+	Form<PokerTable> filledForm = Form.form(PokerTable.class);
 	@Spy
 	DatabaseManager dbManager = new DatabaseManager();
 
@@ -52,20 +52,25 @@ public class DefaultTablesServiceTest extends AbstractTest {
 		DbPokerTable dbPokerTable = new DbPokerTable("Las Vegas",
 				TableType.HOLDEM, TableLimit.NO_LIMIT, 9,
 				new ArrayList<DbUser>());
-		when(form.bindFromRequest()).thenReturn(
-				Form.form(PokerTable.class).fill(pokerTable));
+		when(form.bindFromRequest()).thenReturn(filledForm);
+		doReturn(pokerTable).when(filledForm).get();
 		assertTrue(tablesService.newTable());
 		verify(dbManager).createPokerTable(dbPokerTable);
+		verify(filledForm, times(2)).hasErrors();
+		verify(filledForm, times(0)).reject("This table name already exists");
 		// Existent table
 		reset(dbManager);
+		filledForm = spy(Form.form(PokerTable.class));
 		pokerTable = new PokerTable("Sydney", TableType.HOLDEM,
 				TableLimit.NO_LIMIT, 9, new ArrayList<User>());
 		dbPokerTable = new DbPokerTable("Sydney", TableType.HOLDEM,
 				TableLimit.NO_LIMIT, 9, new ArrayList<DbUser>());
-		when(form.bindFromRequest()).thenReturn(
-				Form.form(PokerTable.class).fill(pokerTable));
+		when(form.bindFromRequest()).thenReturn(filledForm);
+		doReturn(pokerTable).when(filledForm).get();
 		assertFalse(tablesService.newTable());
 		verify(dbManager).createPokerTable(dbPokerTable);
+		verify(filledForm, times(2)).hasErrors();
+		verify(filledForm).reject("This table name already exists");
 	}
 
 	@Test

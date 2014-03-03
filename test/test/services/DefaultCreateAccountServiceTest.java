@@ -20,8 +20,8 @@ public class DefaultCreateAccountServiceTest extends AbstractTest {
 
 	@Mock
 	Form<Account> form;
-	@Mock
-	Form<Account> filledForm;
+	@Spy
+	Form<Account> filledForm = Form.form(Account.class);
 	@Spy
 	DatabaseManager dbManager = new DatabaseManager();
 
@@ -33,10 +33,12 @@ public class DefaultCreateAccountServiceTest extends AbstractTest {
 		Account account = new Account("sdubois86@gmail.com",
 				"sdubois86@gmail.com", "sdubois86", "sdubois86");
 		DbUser user = new DbUser("sdubois86@gmail.com", "sdubois86");
-		when(form.bindFromRequest()).thenReturn(
-				Form.form(Account.class).fill(account));
+		when(form.bindFromRequest()).thenReturn(filledForm);
+		doReturn(account).when(filledForm).get();
 		assertTrue(createAccountService.submitAccount());
 		verify(dbManager).createUser(user);
+		verify(filledForm, times(2)).hasErrors();
+		verify(filledForm, times(0)).reject("This email is already registered");
 	}
 
 	@Test
@@ -44,10 +46,12 @@ public class DefaultCreateAccountServiceTest extends AbstractTest {
 		Account account = new Account("sdubois87@gmail.com",
 				"sdubois87@gmail.com", "sdubois87", "sdubois87");
 		DbUser user = new DbUser("sdubois87@gmail.com", "sdubois87");
-		when(form.bindFromRequest()).thenReturn(
-				Form.form(Account.class).fill(account));
+		when(form.bindFromRequest()).thenReturn(filledForm);
+		doReturn(account).when(filledForm).get();
 		assertFalse(createAccountService.submitAccount());
 		verify(dbManager).createUser(user);
+		verify(filledForm, times(2)).hasErrors();
+		verify(filledForm).reject("This email is already registered");
 	}
 
 }
