@@ -57,9 +57,9 @@ public class Account {
 				|| confirmPassword.isEmpty()) {
 			return "All fields are required";
 		} else if (!email.equals(confirmEmail)) {
-			return "Emails doesn't match";
+			return "Emails don't match";
 		} else if (!password.equals(confirmPassword)) {
-			return "Passwords doesn't match";
+			return "Passwords don't match";
 		}
 		return null;
 	}
