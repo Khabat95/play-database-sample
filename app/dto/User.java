@@ -34,34 +34,20 @@ public class User {
 	}
 
 	public DbUser toDbUser() {
-		return new DbUser(email, "");
+		return UserToDbUser.INSTANCE.apply(this);
 	}
 
 	public static User fromDbUser(DbUser dbUser) {
-		return new User(dbUser.getEmail());
+		return DbUserToUser.INSTANCE.apply(dbUser);
 	}
 
-	private static Function<DbUser, User> dbToDtoTransformFunction = new Function<DbUser, User>() {
-		@Override
-		public User apply(DbUser dbUser) {
-			return fromDbUser(dbUser);
-		}
-	};
-
-	private static Function<User, DbUser> dtoToDbTransformFunction = new Function<User, DbUser>() {
-		@Override
-		public DbUser apply(User user) {
-			return user.toDbUser();
-		}
-	};
-
 	public static List<User> fromDbUserList(List<DbUser> list) {
-		return FluentIterable.from(list).transform(dbToDtoTransformFunction)
+		return FluentIterable.from(list).transform(DbUserToUser.INSTANCE)
 				.toList();
 	}
 
 	public static List<DbUser> toDbUserList(List<User> list) {
-		return FluentIterable.from(list).transform(dtoToDbTransformFunction)
+		return FluentIterable.from(list).transform(UserToDbUser.INSTANCE)
 				.toList();
 	}
 
@@ -93,6 +79,38 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [email=" + email + "]";
+	}
+
+	private static class DbUserToUser implements Function<DbUser, User> {
+
+		public static final DbUserToUser INSTANCE = new DbUserToUser();
+
+		private DbUserToUser() {
+			super();
+		}
+
+		@Override
+		public User apply(final DbUser dbUser) {
+			final User user = new User(dbUser.getEmail());
+			return user;
+		}
+
+	}
+
+	private static class UserToDbUser implements Function<User, DbUser> {
+
+		public static final UserToDbUser INSTANCE = new UserToDbUser();
+
+		private UserToDbUser() {
+			super();
+		}
+
+		@Override
+		public DbUser apply(final User user) {
+			final DbUser dbUser = new DbUser(user.getEmail(), "");
+			return dbUser;
+		}
+
 	}
 
 }

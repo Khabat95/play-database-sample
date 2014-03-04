@@ -1,5 +1,7 @@
 package dto;
 
+import com.google.common.base.Function;
+
 import models.DbUser;
 
 public class Account {
@@ -65,12 +67,11 @@ public class Account {
 	}
 
 	public DbUser toDbUser() {
-		return new DbUser(email, password);
+		return AccountToDbUser.INSTANCE.apply(this);
 	}
 
 	public static Account fromDbUser(DbUser dbUser) {
-		return new Account(dbUser.getEmail(), dbUser.getEmail(),
-				dbUser.getPassword(), dbUser.getPassword());
+		return DbUserToAccount.INSTANCE.apply(dbUser);
 	}
 
 	@Override
@@ -124,6 +125,41 @@ public class Account {
 		return "Account [email=" + email + ", confirmEmail=" + confirmEmail
 				+ ", password=" + password + ", confirmPassword="
 				+ confirmPassword + "]";
+	}
+
+	private static class DbUserToAccount implements Function<DbUser, Account> {
+
+		public static final DbUserToAccount INSTANCE = new DbUserToAccount();
+
+		private DbUserToAccount() {
+			super();
+		}
+
+		@Override
+		public Account apply(final DbUser dbUser) {
+			final Account account = new Account(dbUser.getEmail(),
+					dbUser.getEmail(), dbUser.getPassword(),
+					dbUser.getPassword());
+			return account;
+		}
+
+	}
+
+	private static class AccountToDbUser implements Function<Account, DbUser> {
+
+		public static final AccountToDbUser INSTANCE = new AccountToDbUser();
+
+		private AccountToDbUser() {
+			super();
+		}
+
+		@Override
+		public DbUser apply(final Account account) {
+			final DbUser dbUser = new DbUser(account.getEmail(),
+					account.getPassword());
+			return dbUser;
+		}
+
 	}
 
 }

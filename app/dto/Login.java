@@ -1,5 +1,7 @@
 package dto;
 
+import com.google.common.base.Function;
+
 import models.DbUser;
 
 public class Login {
@@ -39,11 +41,11 @@ public class Login {
 	}
 
 	public DbUser toDbUser() {
-		return new DbUser(email, password);
+		return LoginToDbUser.INSTANCE.apply(this);
 	}
 
 	public static Login fromDbUser(DbUser dbUser) {
-		return new Login(dbUser.getEmail(), dbUser.getPassword());
+		return DbUserToLogin.INSTANCE.apply(dbUser);
 	}
 
 	@Override
@@ -81,6 +83,40 @@ public class Login {
 	@Override
 	public String toString() {
 		return "Login [email=" + email + ", password=" + password + "]";
+	}
+
+	private static class DbUserToLogin implements Function<DbUser, Login> {
+
+		public static final DbUserToLogin INSTANCE = new DbUserToLogin();
+
+		private DbUserToLogin() {
+			super();
+		}
+
+		@Override
+		public Login apply(final DbUser dbUser) {
+			final Login login = new Login(dbUser.getEmail(),
+					dbUser.getPassword());
+			return login;
+		}
+
+	}
+
+	private static class LoginToDbUser implements Function<Login, DbUser> {
+
+		public static final LoginToDbUser INSTANCE = new LoginToDbUser();
+
+		private LoginToDbUser() {
+			super();
+		}
+
+		@Override
+		public DbUser apply(final Login login) {
+			final DbUser dbUser = new DbUser(login.getEmail(),
+					login.getPassword());
+			return dbUser;
+		}
+
 	}
 
 }

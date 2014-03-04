@@ -41,6 +41,14 @@ public class DbPokerTable extends Model {
 	}
 
 	public DbPokerTable(String name, TableType tableType,
+			TableLimit tableLimit, Integer seatNumber) {
+		this.name = name;
+		this.tableType = tableType;
+		this.tableLimit = tableLimit;
+		this.seatNumber = seatNumber;
+	}
+
+	public DbPokerTable(String name, TableType tableType,
 			TableLimit tableLimit, Integer seatNumber, List<DbUser> users) {
 		this.name = name;
 		this.tableType = tableType;
